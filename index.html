@@ -207,7 +207,10 @@
         <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
         <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
 
-<div style="text-align: center; margin-top: 40px;">
+<!-- SEKCJA LICZNIKA I PRZYCISKÓW -->
+<div style="text-align: center; margin-top: 40px; margin-bottom: 60px;">
+
+  <!-- LICZNIK -->
   <div style="
     background-color: #fff8dc;
     padding: 20px;
@@ -216,12 +219,12 @@
     margin: 0 auto 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     font-size: 18px;
-    text-align: center;
     font-weight: bold;
     color: #333;">
     👁️‍🗨️ Liczba odwiedzin: <span id="visits" style="color: #000;">...</span>
   </div>
 
+  <!-- PRZYCISKI -->
   <a href="https://buycoffee.to/ramzi-studio" target="_blank" style="
     background-color: #6f4e37;
     color: white;
@@ -253,6 +256,7 @@
   </a>
 </div>
 
+<!-- SKRYPT LICZNIKA -->
 <script>
   fetch('https://ramzi-licznik-backend.onrender.com/visits')
     .then(res => res.json())
@@ -260,3 +264,8 @@
       document.getElementById('visits').textContent = data.visits;
     });
 </script>
+
+<!-- STOPKA -->
+<footer style="text-align: center; padding: 10px; background-color: #f9e6bd; font-size: 14px;">
+  © 2025 Ramzi Studio – Wszystkie prawa zastrzeżone
+</footer>
