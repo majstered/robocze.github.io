@@ -207,15 +207,28 @@
         <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
         <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
 
-<div>👁️‍🗨️ Liczba odwiedzin: <span id="visits"></span></div>
+<div style="
+  background-color: #fff8dc;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 300px;
+  margin: 30px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;">
+  👁️‍🗨️ Liczba odwiedzin: <span id="visits" style="color: #000;">...</span>
+</div>
 
 <script>
   fetch('https://ramzi-licznik-backend.onrender.com/visits')
     .then(res => res.json())
     .then(data => {
       document.getElementById('visits').textContent = data.visits;
-  });
+    });
 </script>
+
 
 
 
