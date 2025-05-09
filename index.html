@@ -207,11 +207,21 @@
         <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
         <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
 
-<div style="text-align: center; margin-top: 30px; margin-bottom: 10px;">
-  <div style="display: inline-block; background-color: #28a745; color: white; padding: 10px 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); font-weight: bold; font-family: sans-serif;">
-    👁️ Licznik odwiedzin:
-    <img src="https://www.cutercounter.com/hits.php?id=hmfpodddp&nd=6&style=7" alt="Licznik odwiedzin strony" style="vertical-align: middle; margin-left: 8px;">
-  </div>
+<!-- Tu wkleisz licznik -->
+      <div id="licznik-odwiedzin" style="font-size: 16px; margin-top: 20px;">
+  👀 Liczba odwiedzin: <span id="visits">
+    
+  </span>
+</div>
+
+<script>
+fetch('https://api.countapi.xyz/hit/ramzi-studio.github.io/visits')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementByid('visits').textContent = data.value;
+  });
+</script>
+
 </div>
 
   </main>
