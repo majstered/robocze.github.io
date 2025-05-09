@@ -207,35 +207,12 @@
         <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
         <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
 
-<div style="
-  background-color: #fff8dc;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 300px;
-  margin: 30px auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-size: 18px;
-  text-align: center;
-  font-weight: bold;
-  color: #333;">
-  👁️‍🗨️ Liczba odwiedzin: <span id="visits" style="color: #000;">...</span>
-</div>
+<div style="text-align: center; margin-top: 40px; margin-bottom: 60px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+  
+  <div style="background-color: #fff8dc; padding: 12px 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-weight: bold; color: #000;">
+    👁️‍🗨️ Odwiedzin: <span id="visits">...</span>
+  </div>
 
-<script>
-  fetch('https://ramzi-licznik-backend.onrender.com/visits')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('visits').textContent = data.visits;
-    });
-</script>
-
-
-
-
-</div>
-
-  </main>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 60px;">
   <a href="https://buycoffee.to/ramzi-studio" target="_blank" style="
     background-color: #6f4e37;
     color: white;
@@ -247,28 +224,28 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     transition: transform 0.2s ease;
     display: inline-block;
-    margin-right: 16px;
   ">☕ Postaw nam kawę</a>
 
-<a href="https://majstered.github.io/ksiega-ramzi.github.io" target="_blank" style="
-  background-color: #0077cc;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  display: inline-block;
-  margin-left: 16px;
-">
-📖 Wpisz się do księgi
-</a>
+  <a href="https://majstered.github.io/ksiega-ramzi.github.io" target="_blank" style="
+    background-color: #0077cc;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+    display: inline-block;
+  ">
+  📖 Wpisz się do księgi
+  </a>
 </div>
 
-  <footer>
-    © 2025 Ramzi Studio – Wszystkie prawa zastrzeżone
-  </footer>
-</body>
-</html>
+<script>
+  fetch('https://ramzi-licznik-backend.onrender.com/visits')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visits').textContent = data.visits;
+    });
+</script>
