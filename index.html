@@ -218,7 +218,7 @@
 fetch('https://api.countapi.xyz/hit/ramzi-studio.github.io/visits')
   .then(response => response.json())
   .then(data => {
-    document.getElementByid('visits').textContent = data.value;
+    document.getElementById('visits').textContent = data.value;
   });
 </script>
 
