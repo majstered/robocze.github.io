@@ -207,20 +207,16 @@
         <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
         <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
 
-<!-- Tu wkleisz licznik -->
-      <div id="licznik-odwiedzin" style="font-size: 16px; margin-top: 20px;">
-  👀 Liczba odwiedzin: <span id="visits">
-    
-  </span>
-</div>
+<div>👁️‍🗨️ Liczba odwiedzin: <span id="visits"></span></div>
 
 <script>
-fetch('https://api.countapi.xyz/hit/ramzi-studio.github.io/visits')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('visits').textContent = data.value;
+  fetch('https://ramzi-licznik-backend.onrender.com/visits')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visits').textContent = data.visits;
   });
 </script>
+
 
 </div>
 
