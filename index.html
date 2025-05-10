@@ -1,266 +1,94 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="aplikacje.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ramzi Studio – Aplikacje dla Ciebie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poznaj Siedliszcze</title>
   <style>
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent 60%),
-                  radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15), transparent 60%);
-      animation: fogMove 60s infinite linear;
-      z-index: -1;
-    }
-    @keyframes fogMove {
-      0% { background-position: 0% 0%, 100% 100%; }
-      100% { background-position: 100% 100%, 0% 0%; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #aaa, 0 0 20px #aaa; }
-      to   { text-shadow: 0 0 20px #fff, 0 0 30px #fef4d1; }
-    }
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
     body {
-      font-family: sans-serif;
       background-color: #fef4d1;
+      font-family: Arial, sans-serif;
+      color: #333;
       margin: 0;
       padding: 0;
     }
     header {
-      background: linear-gradient(90deg, #444, #222);
-      color: white;
-      padding: 40px 20px;
+      background-color: #e0c98d;
+      padding: 1rem;
       text-align: center;
-      text-shadow: 2px 2px 4px #00000066;
-      animation: fadeIn 2s ease-out forwards;
     }
     header h1 {
-      font-size: 42px;
       margin: 0;
-      animation: fadeIn 2s ease-out forwards, glow 3s ease-in-out infinite alternate;
+      font-size: 2rem;
     }
-    main {
-      padding: 20px;
+    nav {
+      background-color: #d6b96c;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.5rem;
     }
-    .app-card {
-      background-color: #fef4d1;
-      border-radius: 12px;
-      padding: 30px;
-      margin: 50px auto;
-      max-width: 960px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      animation: fadeInUp 1s ease-out forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .fade-1 { animation-delay: 0.3s; }
-    .fade-2 { animation-delay: 0.6s; }
-    .fade-3 { animation-delay: 0.9s; }
-    ul {
-      margin: 10px 0 0 0;
-    }
-    a {
-      color: #0044cc;
+    nav a {
+      color: #fff;
       text-decoration: none;
-      position: relative;
+      font-weight: bold;
     }
-    a::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #0044cc;
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out;
+    section {
+      padding: 1.5rem;
     }
-    a:hover::after {
-      visibility: visible;
-      transform: scaleX(1);
+    h2 {
+      color: #805500;
     }
     footer {
+      background-color: #e0c98d;
       text-align: center;
-      padding: 10px;
-      background-color: #f9e6bd;
-      font-size: 14px;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #28a745;
-      color: white;
-      font-weight: bold;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-family: sans-serif;
-      font-size: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      margin-right: 16px;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Ramzi Studio – Aplikacje dla Ciebie</h1>
+    <h1>Poznaj Siedliszcze</h1>
+    <p>Twoje źródło informacji o mieście i gminie Siedliszcze</p>
   </header>
-  <main>
-
-    <div class="app-card fade-1" style="background-color: #fff3ce;">
-      <h2>🧠 Aplikacje tworzone z myślą o Tobie</h2>
-      <p>Jesteśmy małym zespołem – tworzymy aplikacje, które łączą technologię z troską.<br>
-         Nasze programy są proste, przyjazne i pomocne – projektowane z myślą o codziennych potrzebach użytkownika.</p>
-      <ul style="list-style-type: none; padding-left: 0;">
-        <li>🔷 Mogą służyć do nauki, organizacji czasu czy ochrony komputera.</li>
-        <li>🔷 Działają lokalnie – bez reklam, bez zbędnych uprawnień, z szacunkiem dla Twojej prywatności.</li>
-        <li>🔷 Nie posiadają podpisu cyfrowego, dlatego mogą być na początku wykrywane przez niektóre programy antywirusowe.</li>
-      </ul>
-      <p>💬 Będzie nam bardzo miło, jeśli zechcesz wypróbować którąś z aplikacji i podzielić się swoją opinią lub uwagami.</p>
-    </div>
-
-
-    
-
-    <div class="app-card fade-2">
-      <h2>🕰️ Twój czas, Twoje zdrowie</h2>
-      <p>To lekki, przenośny program działający w tle – bez potrzeby instalacji. Wzorowany na metodzie <strong>Pomodoro</strong>, pomaga odzyskać kontrolę nad czasem spędzanym przy komputerze. Monitoruje cykle pracy i przerw, wspierając w dbaniu o równowagę między skupieniem a odpoczynkiem.</p>
-      <ul>
-        <li>🌐 Wielojęzyczny interfejs – PL, EN, DE, FR</li>
-        <li>⏳ Tryb Pomodoro – 30/2 lub 45/5</li>
-        <li>💤 Wyłącznik komputera – wpisz godzinę</li>
-        <li>🧠 Spokojny interfejs – działa w tle</li>
-      </ul>
-      <div style="margin-top: 20px; text-align: center;">
-        <a href="https://www.youtube.com/watch?v=EiGnTvTr8lM" target="_blank" class="btn">▶️ Zobacz instrukcję</a>
-        <a href="https://ramzi.github.io/Twój%20czas,%20twoje%20zdrowie.rar" target="_blank" class="btn">⬇️ Pobierz aplikację</a>
-        <a href="https://majstered.github.io/twojopis.github.io/" class="btn" target="_blank">ℹ️ Opis aplikacji</a>
-
-      </div>
-    </div>
-
-    <div class="app-card fade-3">
-      <h2>🛡️ Strażnik Procesów</h2>
-      <p>Narzędzie do monitorowania, wykrywania i analizowania podejrzanych procesów w systemie Windows. Pozwala bezpiecznie zarządzać aplikacjami, usuwać logi i chronić system w czasie rzeczywistym.</p>
-      <ul>
-        <li>🔍 Lista procesów – filtrowanie, zakończenie</li>
-        <li>🦠 Wykrywanie antywirusów i narzędzi</li>
-        <li>📤 Przycisk „Zaufaj” – usuwanie podejrzanych</li>
-        <li>🧹 Usuwanie logów i aktualizacji</li>
-        <li>🕵️ Monitoring systemu – powiadomienia</li>
-      </ul>
-      <div style="margin-top: 20px; text-align: center;">
-        <a href="https://youtu.be/wbL2dtnEmEk" target="_blank" class="btn">▶️ Zobacz instrukcję</a>
-        <a href="https://drive.google.com/uc?export=download&id=10AXvED7YUnPRvMddPyrhk3Wi89eQkCMf" target="_blank" class="btn">⬇️ Pobierz aplikację</a>
-      </div>
-    </div>
-
-    <div class="app-card fade-3">
-      <h2>🎵 Yanosik Turbo 1.0 – Twoja osobista biblioteka dźwięku
-        <span style="background-color: #ff6868; color: white; padding: 2px 6px; font-size: 14px; border-radius: 4px; margin-left: 10px;">Nowość!</span>
-      </h2>
-      <p>
-        <strong>Pobieraj swoje pliki muzyczne z YouTube, SoundCloud, Bandcamp, Facebooka i innych źródeł.</strong><br>
-        Yanosik Turbo to lekka aplikacja dla twórców, nauczycieli, muzyków i pasjonatów – 
-        stworzona z myślą o <strong>legalnym dostępie do muzyki offline.</strong>
-      </p>
-      <h3>🔐 Legalność:</h3>
-      <p>Program służy do pobierania:</p>
-      <ul>
-      <li>Własnych treści</li>
-      <li>Muzyki udostępnionej publicznie</li>
-      <li>Plików za zgodą autora</li>
+  <nav>
+    <a href="#historia">Historia</a>
+    <a href="#atrakcje">Atrakcje</a>
+    <a href="#wydarzenia">Wydarzenia</a>
+    <a href="#parafia">Parafia</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <section id="historia">
+    <h2>Historia</h2>
+    <p>Siedliszcze to miejscowość z bogatą historią sięgającą XIV wieku. W 1548 roku uzyskało prawa miejskie, a po ich utracie w XIX wieku – odzyskało je ponownie 1 stycznia 2016 roku.</p>
+  </section>
+  <section id="atrakcje">
+    <h2>Atrakcje turystyczne</h2>
+    <ul>
+      <li>Zamczysko – pozostałości grodziska średniowiecznego</li>
+      <li>Kościół Matki Boskiej Częstochowskiej (dawna cerkiew, 1904)</li>
+      <li>Dwór w Chojeńcu z XVIII wieku i park dworski</li>
+      <li>Pomniki pamięci i miejsca historyczne</li>
     </ul>
-      <p>
-        <strong>Nie zachęcamy do łamania praw autorskich.</strong>
-      </p>
-      <ul>
-        <li>✅ Pobiera z YouTube, SoundCloud, Bandcamp, Facebook</li>
-        <li>✅ Zapisuje pliki jako MP3</li>
-        <li>✅ Tworzy bibliotekę z odtwarzaczem</li>
-        <li>✅ Brak logowania i śledzenia</li>
-        <li>✅ Blokuje nieprawidłowe playlisty</li>
-      </ul>
-      <div style="margin-top: 20px; text-align: center;">
-        <a href="https://www.youtube.com/watch?v=TwojFilm" target="_blank" class="btn">▶️ Zobacz instrukcję</a>
-        <a href="https://drive.google.com/uc?export=download&id=10AXvED7YUnPRvMddPyrhk3Wi89eQkCMf" target="_blank" class="btn">⬇️ Pobierz aplikację</a>
-      </div>
-    </div>
-      <div class="app-card fade-3" style="text-align: center; background-color: #fff3ce;">
-        <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="favicon.png" alt="Ikona Twój czas, twoje zdrowie" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="procesy.png" alt="Ikona Strażnik Procesów" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-
-<div class="app-card fade-3" style="text-align: center; background-color: #fff3ce;">
-  <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-  <img src="favicon.png" alt="Ikona Twój czas, twoje zdrowie" style="width: 80px; height: 80px; margin: 10px;">
-  <img src="procesy.png" alt="Ikona Strażnik Procesów" style="width: 80px; height: 80px; margin: 10px;">
-  <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
-  <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-</div>
-
-<!-- PRZYCISKI + LICZNIK -->
-<div style="text-align: center; margin-top: 30px; margin-bottom: 60px;">
-  <div style="display: inline-block; background-color: #fff8dc; padding: 12px 20px; border-radius: 8px; font-size: 16px; font-weight: bold; margin-right: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-    👁️‍🗨️ Odwiedzin: <span id="visits" style="color: #000;">...</span>
-  </div>
-
-  <a href="https://buycoffee.to/ramzi-studio" target="_blank" style="
-    background-color: #6f4e37;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-    display: inline-block;
-    margin-right: 16px;
-  ">☕ Postaw nam kawę</a>
-
-  <a href="https://majstered.github.io/ksiega-ramzi.github.io" target="_blank" style="
-    background-color: #0077cc;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-    display: inline-block;
-  ">
-  📖 Wpisz się do księgi
-  </a>
-</div>
-
-<!-- LICZNIK SKRYPT -->
-<script>
-  fetch('https://ramzi-licznik-backend.onrender.com/visits')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('visits').textContent = data.visits;
-    });
-</script>
-
-<!-- STOPKA -->
-<footer style="text-align: center; padding: 10px; background-color: #f9e6bd; font-size: 14px;">
-  © 2025 Ramzi Studio – Wszystkie prawa zastrzeżone
-</footer>
+  </section>
+  <section id="wydarzenia">
+    <h2>Aktualności i wydarzenia</h2>
+    <p>Śledź lokalne wydarzenia kulturalne, festyny, spotkania mieszkańców i sesje rady miejskiej.</p>
+  </section>
+  <section id="parafia">
+    <h2>Parafia w Siedliszczu</h2>
+    <p>Parafia Matki Boskiej Częstochowskiej prowadzi liczne działania duszpasterskie i społeczne. Odwiedź stronę parafialną, aby sprawdzić ogłoszenia, plan Mszy Świętych i zdjęcia z wydarzeń.</p>
+  </section>
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p><strong>Urząd Miejski w Siedliszczu</strong><br>
+      ul. Szpitalna 15a, 22-130 Siedliszcze<br>
+      tel. 82 569 22 02<br>
+      e-mail: gmina@siedliszcze.pl</p>
+  </section>
+  <footer>
+    &copy; 2025 Ramzi & Mgiełka – Informator lokalny Siedliszcza
+  </footer>
+</body>
+</html>
