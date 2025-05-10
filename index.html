@@ -1,94 +1,74 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poznaj Siedliszcze</title>
-  <style>
-    body {
-      background-color: #fef4d1;
-      font-family: Arial, sans-serif;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #e0c98d;
-      padding: 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    nav {
-      background-color: #d6b96c;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 0.5rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 1.5rem;
-    }
-    h2 {
-      color: #805500;
-    }
-    footer {
-      background-color: #e0c98d;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Informator – Siedliszcze</title>
+    <style>
+        body {
+            background-color: #fef4d1;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            animation: move 4s infinite alternate;
+        }
+        @keyframes move {
+            0% { letter-spacing: 1px; }
+            100% { letter-spacing: 5px; }
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .section {
+            margin: 30px 10px;
+            font-size: 20px;
+        }
+        .oplaty {
+            text-align: left;
+            display: inline-block;
+            background: #fffbe6;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 90%;
+            height: auto;
+            border: 2px solid #444;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Poznaj Siedliszcze</h1>
-    <p>Twoje źródło informacji o mieście i gminie Siedliszcze</p>
-  </header>
-  <nav>
-    <a href="#historia">Historia</a>
-    <a href="#atrakcje">Atrakcje</a>
-    <a href="#wydarzenia">Wydarzenia</a>
-    <a href="#parafia">Parafia</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-  <section id="historia">
-    <h2>Historia</h2>
-    <p>Siedliszcze to miejscowość z bogatą historią sięgającą XIV wieku. W 1548 roku uzyskało prawa miejskie, a po ich utracie w XIX wieku – odzyskało je ponownie 1 stycznia 2016 roku.</p>
-  </section>
-  <section id="atrakcje">
-    <h2>Atrakcje turystyczne</h2>
-    <ul>
-      <li>Zamczysko – pozostałości grodziska średniowiecznego</li>
-      <li>Kościół Matki Boskiej Częstochowskiej (dawna cerkiew, 1904)</li>
-      <li>Dwór w Chojeńcu z XVIII wieku i park dworski</li>
-      <li>Pomniki pamięci i miejsca historyczne</li>
-    </ul>
-  </section>
-  <section id="wydarzenia">
-    <h2>Aktualności i wydarzenia</h2>
-    <p>Śledź lokalne wydarzenia kulturalne, festyny, spotkania mieszkańców i sesje rady miejskiej.</p>
-  </section>
-  <section id="parafia">
-    <h2>Parafia w Siedliszczu</h2>
-    <p>Parafia Matki Boskiej Częstochowskiej prowadzi liczne działania duszpasterskie i społeczne. Odwiedź stronę parafialną, aby sprawdzić ogłoszenia, plan Mszy Świętych i zdjęcia z wydarzeń.</p>
-  </section>
-  <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p><strong>Urząd Miejski w Siedliszczu</strong><br>
-      ul. Szpitalna 15a, 22-130 Siedliszcze<br>
-      tel. 82 569 22 02<br>
-      e-mail: gmina@siedliszcze.pl</p>
-  </section>
-  <footer>
-    &copy; 2025 Ramzi & Mgiełka – Informator lokalny Siedliszcza
-  </footer>
+    <header>🗑️ Info dla mieszkańców Siedliszcza</header>
+    <h2>📱 Mobilna przypominajka o odbiorze odpadów i terminach opłat kwartalnych</h2>
+    <img src="Harmonogram.jpg" alt="Harmonogram odpadów 2025">
+    <div class="section">
+        <div class="oplaty">
+            <p>⭐ do 15 marca – opłata I kwartał (podatek + odpady)</p>
+            <p>💧 do 15 kwietnia – opłata I kwartał (woda + ścieki)</p>
+            <p>⭐ do 15 maja – opłata II kwartał (podatek + odpady)</p>
+            <p>💧 do 15 lipca – opłata II kwartał (woda + ścieki)</p>
+            <p>⭐ do 15 września – opłata III kwartał (podatek + odpady)</p>
+            <p>💧 do 15 października – opłata III kwartał (woda + ścieki)</p>
+            <p>⭐ do 15 listopada – opłata IV kwartał (podatek + odpady)</p>
+            <p>💧 do 20 grudnia – opłata IV kwartał (woda + ścieki)</p>
+        </div>
+        <p style="font-size: 18px; margin-top: 20px;">📎 Zeskanuj kod QR i przekaż sąsiadowi dobrą nowinę:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://majstered.github.io/odpady.github.io/" alt="Kod QR do strony">
+    </div>
+    <footer>Ramzi i mgiełka 🌫️</footer>
 </body>
 </html>
