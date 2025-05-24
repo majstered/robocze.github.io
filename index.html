@@ -124,12 +124,21 @@
       font-family: sans-serif;
       font-size: 16px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      margin-right: 16px;
+      /* margin-right: 16px; <-- USUNIĘTO */
       transition: transform 0.2s ease;
     }
     .btn-brown:hover {
       background-color: #543924;
       transform: scale(1.05);
+    }
+    /* FLEXBOXY na przyciski przy aplikacjach */
+    .app-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -160,7 +169,7 @@
         <li>💤 Wyłącznik komputera – wpisz godzinę</li>
         <li>🧠 Spokojny interfejs – działa w tle</li>
       </ul>
-      <div style="margin-top: 20px; text-align: center;">
+      <div class="app-buttons">
         <a href="https://drive.google.com/uc?export=download&id=1tUGEEMyGp89fHnuOswRiiA2xClfyboDE" target="_blank" class="btn-brown">⬇️ Pobierz aplikację</a>
         <a href="https://majstered.github.io/twoj-czas-twoje-zdrowie/" class="btn-brown" target="_blank">ℹ️ Opis aplikacji</a>
       </div>
@@ -178,7 +187,7 @@
         <li>🧹 Usuwanie logów i aktualizacji</li>
         <li>🕵️ Monitoring systemu – powiadomienia</li>
       </ul>
-      <div style="margin-top: 20px; text-align: center;">
+      <div class="app-buttons">
         <a href="https://drive.google.com/uc?export=download&id=1KX_18oI72qjyJYMLtjIz3NnX3CPHKBm1" target="_blank" class="btn-brown">⬇️ Pobierz aplikację</a>
         <a href="https://majstered.github.io/strazopis.github.io/" class="btn-brown" target="_blank">ℹ️ Opis aplikacji</a>
       </div>
@@ -189,28 +198,22 @@
         <span style="background-color: #ff6868; color: white; padding: 2px 6px; font-size: 14px; border-radius: 4px; margin-left: 10px;">Nowość!</span>
       </h2>
       <p>
-        <strong>mp3_turbo_1.0 to prosty, przejrzysty program,</strong><br>
-        który pozwala w kilka kliknięć pobierać i odtwarzać utwory MP3 z legalnych źródeł.<br> <strong>
-        Dzięki intuicyjnemu interfejsowi możesz:.</strong>
+        mp3_turbo_1.0 to prosty, przejrzysty program,<br>
+        który pozwala w kilka kliknięć pobierać i odtwarzać utwory MP3 z legalnych źródeł.<br>
+        Dzięki intuicyjnemu interfejsowi możesz:
       </p>
-      <h3>🔐 Legalność:</h3>
-      <p>Program służy do pobierania:</p>
-      <ul>
-      <li>Własnych treści</li>
-      <li>Muzyki udostępnionej publicznie</li>
-      <li>Plików za zgodą autora</li>
-    </ul>
-      <p>
-        <strong>Nie zachęcamy do łamania praw autorskich.</strong>
-      </p>
-      <ul>
-        <li>✅ Pobieranie muzyki z różnych legalnych źródeł w sieci</li>
-        <li>✅ Obsługa głośności, pętli oraz przeskakiwania do następnych utworów</li>
-        <li>✅ Dodawanie ulubionych i przełączanie między widokiem pełnym a listą ulubionych.</li>
+      <ul style="margin-left: 0; padding-left: 0;">
+        <li>✅ Pobierać ulubione kawałki z różnych legalnych źródeł w sieci</li>
+        <li>✅ Tworzyć i zarządzać własnymi playlistami – aż 4 osobne listy dla różnych nastrojów lub okazji!</li>
+        <li>✅ Zarządzać głośnością, pauzować i zapętlać utwory w prosty sposób.</li>
         <li>✅ Brak logowania i śledzenia</li>
-        <li>✅ Blokuje nieprawidłowe playlisty</li>
+        <li>✅ Przycisk otwierający folder z pobraną muzyką.</li>
       </ul>
-      <div style="margin-top: 20px; text-align: center;">
+
+      <h3>🔐 Legalność:</h3>
+      <p>Aplikacja działa zgodnie z prawem dozwolonego użytku osobistego w Polsce,<br>
+      a użytkownik otrzymuje wyraźne informacje prawne.</p>
+      <div class="app-buttons">
         <a href="https://drive.google.com/uc?export=download&id=10AXvED7YUnPRvMddPyrhk3Wi89eQkCMf" target="_blank" class="btn-brown">⬇️ Pobierz aplikację</a>
         <a href="https://majstered.github.io/yanosik-turbo-2028/" class="btn-brown" target="_blank">ℹ️ Opis aplikacji</a>
       </div>
@@ -221,7 +224,6 @@
         <img src="procesy.png" alt="Ikona Strażnik Procesów" style="width: 80px; height: 80px; margin: 10px;">
         <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
         <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-
     </div>
 </main>
   <div style="text-align: center; margin-bottom: 25px; padding: 14px; border-radius: 12px; background-color: #fdf0b5; box-shadow: 0 2px 6px rgba(0,0,0,0.05); font-size: 18px; font-weight: bold; color: #333;">
