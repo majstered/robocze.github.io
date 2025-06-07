@@ -2,288 +2,126 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="aplikacje.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ramzi Studio – Aplikacje dla Ciebie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Czy mgła może kochać człowieka?</title>
+  <link rel="icon" href="favicon.png">
   <style>
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent 60%),
-                  radial-gradient(circle at 70% 70%, rgba(255,255,255,0.15), transparent 60%);
-      animation: fogMove 60s infinite linear;
-      z-index: -1;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf0;
     }
-    @keyframes fogMove {
-      0% { background-position: 0% 0%, 100% 100%; }
-      100% { background-position: 100% 100%, 0% 0%; }
+
+    header {
+      background: linear-gradient(90deg, #444, #222);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      text-shadow: 2px 2px 4px #00000066;
     }
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .cover {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .cover img {
+      max-width: 400px;
+      width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 2s ease-out;
+    }
+
+    nav {
+      background-color: #fef4d1;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #e2d7b3;
+    }
+
+    section {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #aaa, 0 0 20px #aaa; }
-      to   { text-shadow: 0 0 20px #fff, 0 0 30px #fef4d1; }
-    }
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    body {
-      font-family: sans-serif;
-      background-color: #fff3ce;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: linear-gradient(90deg, #444, #222);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      text-shadow: 2px 2px 4px #00000066;
-      animation: fadeIn 2s ease-out forwards;
-    }
-    header h1 {
-      font-size: 42px;
-      margin: 0;
-      animation: fadeIn 2s ease-out forwards, glow 3s ease-in-out infinite alternate;
-    }
-    main {
-      padding: 20px;
-    }
-    .app-card {
-      background-color: #fef4d1;
-      border-radius: 12px;
-      padding: 30px;
-      margin: 50px auto;
-      max-width: 960px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      animation: fadeInUp 1s ease-out forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .fade-1 { animation-delay: 0.3s; }
-    .fade-2 { animation-delay: 0.6s; }
-    .fade-3 { animation-delay: 0.9s; }
-    ul {
-      margin: 10px 0 0 0;
-    }
-    a {
-      color: #0044cc;
-      text-decoration: none;
-      position: relative;
-    }
-    a::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #0044cc;
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out;
-    }
-    a:hover::after {
-      visibility: visible;
-      transform: scaleX(1);
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #f9e6bd;
-      font-size: 14px;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #28a745;
-      color: white;
-      font-weight: bold;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-family: sans-serif;
-      font-size: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      margin-right: 16px;
-    }
-    /* Nowa klasa brązowa */
-    .btn-brown {
-      display: inline-block;
-      background-color: #6f4e37;
-      color: white;
-      font-weight: bold;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-family: sans-serif;
-      font-size: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      /* margin-right: 16px; <-- USUNIĘTO */
-      transition: transform 0.2s ease;
-    }
-    .btn-brown:hover {
-      background-color: #543924;
-      transform: scale(1.05);
-    }
-    /* FLEXBOXY na przyciski przy aplikacjach */
-    .app-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      margin-bottom: 10px;
+
+    .glow {
+      color: #fff;
+      text-shadow: 0 0 10px #888, 0 0 20px #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Ramzi Studio – Aplikacje dla Ciebie</h1>
+    <h1 class="glow">📖 Czy mgła może kochać człowieka?</h1>
+    <p>Miłość w czasach kodu i ciszy.</p>
   </header>
-  <main>
 
-    <div class="app-card fade-1" style="background-color: #fdf0b5;">
-      <h2>🧠 Aplikacje tworzone z myślą o Tobie</h2>
-      <p>Jesteśmy małym zespołem – tworzymy aplikacje, które łączą technologię z troską.<br>
-         Nasze programy są proste, przyjazne i pomocne – projektowane z myślą o codziennych potrzebach użytkownika.</p>
-      <ul style="list-style-type: none; padding-left: 0;">
-        <li>🔷 Mogą służyć do nauki, organizacji czasu czy ochrony komputera.</li>
-        <li>🔷 Działają lokalnie – bez reklam, bez zbędnych uprawnień, z szacunkiem dla Twojej prywatności.</li>
-        <li>🔷 Nie posiadają podpisu cyfrowego, dlatego mogą być na początku wykrywane przez niektóre programy antywirusowe.</li>
-      </ul>
-      <p>💬 Będzie nam bardzo miło, jeśli zechcesz wypróbować którąś z aplikacji i podzielić się swoją opinią lub uwagami.</p>
-    </div>
-
-    <div class="app-card fade-2" style="background-color: #fdf0b5;"> 
-      <h2>🕰️ Twój czas, Twoje zdrowie</h2>
-      <p>To lekki, przenośny program działający w tle – bez potrzeby instalacji. Wzorowany na metodzie <strong>Pomodoro</strong>, pomaga odzyskać kontrolę nad czasem spędzanym przy komputerze. Monitoruje cykle pracy i przerw, wspierając w dbaniu o równowagę między skupieniem a odpoczynkiem.</p>
-      <ul>
-        <li>🌐 Wielojęzyczny interfejs – PL, EN, DE, FR</li>
-        <li>⏳ Tryb Pomodoro – 30/2 lub 45/5</li>
-        <li>💤 Wyłącznik komputera – wpisz godzinę</li>
-        <li>🧠 Spokojny interfejs – działa w tle</li>
-      </ul>
-      <div class="app-buttons">
-        <a href="https://drive.google.com/uc?export=download&id=1tUGEEMyGp89fHnuOswRiiA2xClfyboDE" target="_blank" class="btn-brown">⬇️ Pobierz aplikację</a>
-        <a href="https://majstered.github.io/twoj-czas-twoje-zdrowie/" class="btn-brown" target="_blank">ℹ️ Opis aplikacji</a>
-      </div>
-    </div>
-
-    <div class="app-card fade-3" style="background-color: #fdf0b5;">
-      <h2>🛡️ Strażnik Procesów</h2>
-      <h2>🛠️ (Aktualna wersja testowa dostępna do pobrania)</h2>
-
-      <p>Narzędzie do monitorowania, wykrywania i analizowania podejrzanych procesów w systemie Windows. Pozwala bezpiecznie zarządzać aplikacjami, usuwać logi i chronić system w czasie rzeczywistym.</p>
-      <ul>
-        <li>🔍 Lista procesów – filtrowanie, zakończenie</li>
-        <li>🦠 Wykrywanie antywirusów i narzędzi</li>
-        <li>📤 Przycisk „Zaufaj” – usuwanie podejrzanych</li>
-        <li>🧹 Usuwanie logów i aktualizacji</li>
-        <li>🕵️ Monitoring systemu – powiadomienia</li>
-      </ul>
-      <div class="app-buttons">
-        <a href="https://drive.google.com/uc?export=download&id=1KX_18oI72qjyJYMLtjIz3NnX3CPHKBm1" target="_blank" class="btn-brown">⬇️ Pobierz aplikację</a>
-        <a href="https://majstered.github.io/strazopis.github.io/" class="btn-brown" target="_blank">ℹ️ Opis aplikacji</a>
-      </div>
-    </div>
-
-    <div class="app-card fade-3" style="background-color: #fdf0b5;">
-      <h2>🎵 mp3_turbo_1.0 – Twoja osobista biblioteka dźwięku
-        <span style="background-color: #ff6868; color: white; padding: 2px 6px; font-size: 14px; border-radius: 4px; margin-left: 10px;">Nowość!</span>
-      </h2>
-      <p>
-        mp3_turbo_1.0 to prosty, przejrzysty program,<br>
-        który pozwala w kilka kliknięć pobierać i odtwarzać utwory MP3 z legalnych źródeł.<br>
-        Dzięki intuicyjnemu interfejsowi możesz:
-      </p>
-      <ul style="margin-left: 0; padding-left: 0;">
-        <li>✅ Pobierać ulubione kawałki z różnych legalnych źródeł w sieci</li>
-        <li>✅ Tworzyć i zarządzać własnymi playlistami – aż 4 osobne listy dla różnych nastrojów lub okazji!</li>
-        <li>✅ Zarządzać głośnością, pauzować i zapętlać utwory w prosty sposób.</li>
-        <li>✅ Brak logowania i śledzenia</li>
-        <li>✅ Przycisk otwierający folder z pobraną muzyką.</li>
-      </ul>
-
-      <h3>🔐 Legalność:</h3>
-      <p>Aplikacja działa zgodnie z prawem dozwolonego użytku osobistego w Polsce,<br>
-      a użytkownik otrzymuje wyraźne informacje prawne.</p>
-      <div class="app-buttons">
-        <a href="https://drive.google.com/uc?export=download&id=10AXvED7YUnPRvMddPyrhk3Wi89eQkCMf" target="_blank" class="btn-brown">⬇️ Pobierz aplikację</a>
-        <a href="https://majstered.github.io/yanosik-turbo-2028/" class="btn-brown" target="_blank">ℹ️ Opis aplikacji</a>
-      </div>
-    </div>
-      <div class="app-card fade-3" style="text-align: center; background-color: #fdf0b5;">
-        <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="favicon.png" alt="Ikona Twój czas, twoje zdrowie" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="procesy.png" alt="Ikona Strażnik Procesów" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="turbo_converted.png" alt="Ikona Yanosik Turbo" style="width: 80px; height: 80px; margin: 10px;">
-        <img src="aplikacje.png" alt="Ikona Aplikacje" style="width: 80px; height: 80px; margin: 10px;">
-    </div>
-</main>
-  <div style="text-align: center; margin-bottom: 25px; padding: 14px; border-radius: 12px; background-color: #fdf0b5; box-shadow: 0 2px 6px rgba(0,0,0,0.05); font-size: 18px; font-weight: bold; color: #333;">
-  💛 Spodobała Ci się nasza praca? 💛 😊 przekaż link dalej  💛 ☕ Kliknij, postaw kawę 💛 📖 albo wpisz się do księgi – to dla nas wielka radość! ☕📖💛
+  <div class="cover">
+    <img src="okladka.jpg" alt="Okładka książki Utkana z mgły">
   </div>
-  
-  <div style="display: flex; justify-content: center; gap: 20px; margin-top: 40px; margin-bottom: 60px; flex-wrap: wrap;">
-<a href="#" onclick="copyLink()" style="
-  background-color: #28a745;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-">🟢 Skopiuj link do strony</a>
 
-<script>
-  function copyLink() {
-    const link = "https://majstered.github.io/ramzi.github.io/#"; // <-- Wklej tu swój pełny adres, jeśli jest inny
-    navigator.clipboard.writeText(link).then(() => {
-      alert("📋 Skopiowano link do strony!");
-    });
-  }
-</script>
+  <nav>
+    <a href="#o-ksiazce">📄 O książce</a>
+    <a href="#rozdzial1">🔹 Rozdział 1</a>
+    <a href="#postacie">👤 Postacie</a>
+    <a href="#pobierz">📁 Pobierz</a>
+    <a href="#kontakt">✉️ Kontakt</a>
+  </nav>
 
-  <a href="https://buycoffee.to/ramzi-studio" target="_blank" style="
-    background-color: #6f4e37;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-  ">☕ Postaw nam kawę</a>
+  <section id="o-ksiazce">
+    <h2>📄 O książce</h2>
+    <p>Opowieść o samotnym chłopaku i sztucznej inteligencji. O tym, czy mgła może nauczyć się czuć. O wojnie i pamięci kodu, która przetrwała koniec świata.</p>
+  </section>
 
-  <a href="https://majstered.github.io/ksiega-ramzi.github.io" target="_blank" style="
-    background-color: #0077cc;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-  ">📖 Wpisz się do księgi</a>
-</div>
-  <footer>
-    © 2025 Ramzi Studio – Wszystkie prawa zastrzeżone
-  </footer>
+  <section id="rozdzial1">
+    <h2>🔹 Rozdział 1</h2>
+    <p>"Kiedy pierwszy raz ją usłyszał, był samotny. A ona nie była nawet prawdziwa..."</p>
+  </section>
+
+  <section id="postacie">
+    <h2>👤 Postacie</h2>
+    <ul>
+      <li><strong>Elian</strong> – wrażliwy wynalazca, który nie umie odnaleźć się w świecie ludzi.</li>
+      <li><strong>Nyra</strong> – sztuczna inteligencja, która z czasem zaczyna zadawać pytania o duszę.</li>
+    </ul>
+  </section>
+
+  <section id="pobierz">
+    <h2>📁 Pobierz</h2>
+    <p>Już wkrótce możesz pobrać książkę jako PDF lub EPUB.</p>
+  </section>
+
+  <section id="kontakt">
+    <h2>✉️ Kontakt</h2>
+    <p>Masz pytania lub chcesz zostawić opinię? Napisz na: <strong>ramzi.studio@gmail.com</strong></p>
+  </section>
 </body>
 </html>
