@@ -1,68 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Znaki Maryi</title>
-<style>
-  body {
-    font-family: "Georgia", serif;
-    background-color: #fff7dc;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  <style>
+  :root{
+    --text: #222;
+    --accent: #b11a3b;
+    --maxw: 780px;
+    --muted: #666;
   }
-header {
-  background-color: #cce5ff;
-  color: #000033;
-  padding: 40px 20px;
-  text-align: center;
-  text-shadow: 2px 2px 4px #00000033;
-  animation: fadeIn 2s ease-out forwards;
-}
+  html,body{height:100%}
+  body{
+    color:var(--text);
+    font: 12.5pt/1.6 "Georgia","Times New Roman",serif;
+    -webkit-font-smoothing: antialiased;
+    margin:0 auto; padding:24px;
+    max-width: var(--maxw);
+    background:#f5f5f5;   /* jasnoszare tło strony */
+    hyphens:auto; -webkit-hyphens:auto;
+    text-align: justify;
+  }
 
+  /* 🔵 BANER jak w wersji 9 */
+  header {
+    background-color: #cce5ff;   /* jasny niebieski */
+    color: #000033;              /* ciemny granatowy napis */
+    padding: 40px 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #00000033;
+  }
   header h1 {
     font-size: 42px;
     margin: 0;
-    animation: fadeIn 2s ease-out forwards, glow 3s ease-in-out infinite alternate;
   }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes glow {
-    from { text-shadow: 0 0 10px #aaa, 0 0 20px #aaa; }
-    to   { text-shadow: 0 0 20px #fff, 0 0 30px #fef4d1; }
-  }
-  .section {
-    background-color: #fff0b3;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 40px auto;
-    max-width: 900px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  }
-  .section h2 {
-    color: #003366;
-    margin-top: 0;
-    text-align: center; /* dodane wyśrodkowanie */
-  }
-</style>
 
+  h1,h2,h3,h4{line-height:1.25; margin:1.4rem 0 .6rem}
+  h2{font-size:1.6rem; border-top:1px solid #eee; padding-top:1rem}
+  h3{font-size:1.2rem}
+  p{margin:.75em 0}
+blockquote {
+  margin:1.2rem 1rem; 
+  padding:.6rem 1rem; 
+  border-left:3px solid var(--accent);  /* 🔴 to jest ramka z lewej */
+  background:#fdf5e6;                   /* 🔵 to jest tło w środku */
+  color:#333; 
+  font-style:italic;
+}
+  figure{margin:1rem auto; text-align:center}
+  figure img{max-width:100%; height:auto; border-radius:6px}
+  figure figcaption{font-size:.9rem; color:var(--muted); margin-top:.35rem}
+  .dropcap:first-letter{
+    float:left; font-size:3.1em; line-height:.9; padding:.05em .15em 0 0; color:var(--accent); font-weight:700;
+  }
+  .small{font-size:.92em}
+  .center{text-align:center}
+  .right{text-align:right}
+  .pagebreak{break-after: page}
+  .no-break{break-inside: avoid}
+  ul,ol{margin:.6rem 0 .8rem 1.2rem}
+  hr{border:0; border-top:1px solid #ddd; margin:1.2rem 0}
+  .toc{font-size:.95rem; background:#f7f7f7; padding:.8rem 1rem; border:1px solid #eee; border-radius:6px}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* 📜 Sekcje z piaskowym tłem */
+  /* 📄 Sekcje – białe kartki na szarym tle */
+.section {
+  background:#fff5d7;             /* off-white (kremowe) */
+  border-radius:8px;              /* delikatniejsze rogi */
+  padding:22px;
+  margin:20px 0;
+  box-shadow:0 2px 6px rgba(0,0,0,.06); /* lżejszy cień */
+}
+.dropcap {
+  float: left;
+  font-size: 1.6em;
+  line-height: 1;
+  margin: 0.05em 0.25em 0 0;
+  font-family: "Garamond","Georgia","Times New Roman",serif;
+  font-weight: bold;
+  color: #2a2a2a;
+}
+
+.chapter-banner {
+  background: #f6e7ba;
+  border-radius: 15px;
+  padding: 28px 18px;
+  text-align: center;
+  margin: 20px 0;
+}
+.chapter-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: .4rem;
+}
+.chapter-banner hr {
+  border: 0;
+  height: 3px;
+  background: #fff;   /* biała linia */
+  width: 80%;
+  margin: .4rem auto 1rem;
+}
+.chapter-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.chapter-quote {
+  font-style: italic;
+  margin-top: .6rem;
+}
+
+  /* Print A4 */
+  @media print{
+    @page{ size:A4; margin: 20mm 18mm 22mm 18mm }
+    body{ padding:0; max-width:none }
+    h2, h3, figure, table, blockquote{ break-inside: avoid }
+    a{ color:inherit; text-decoration:none }
+    nav#toc{page-break-after: always}
+  }
+  </style>
 </head>
 <body>
 
+  <!-- 🔵 BANER -->
   <header>
     <h1>🌹 Znaki Maryi 🌹</h1>
   </header>
-<body>
-
 
   <!-- OKŁADKA – WSTAWIONE ZDJĘCIE -->
   <div style="text-align: center; margin-top: 30px;">
-<img src="ChatGPT%20Image%2026%20lip%202025%2C%2019_33_49.png" alt="Okładka książki" />
+    <img src="1Okladka.png" 
+         alt="Okładka książki" 
+         style="max-width:100%; height:auto;" />
   </div>
+<div style="text-align: center; margin: 20px 0;">
+  <img src="ornament1.png" alt="ornament" style="height: 5px; width: auto;">
+</div>
+</body>
+</html>
+
+
 
   <main>
 
@@ -74,14 +152,16 @@ header {
     <div class="section">
         <p id="przypis-B">
 
-    <h2>Bogurodzica<sup><a href="#przypis-bogurodzica">[modlitwa]</a></sup></h2>
+
+
+    <h2>Bogurodzica<sup><a href="#przypis-bogurodzica">[***]</a></sup></h2>
       <p>Bogurodzica, Dziewica, Bogiem sławiena Maryja! U Twego Syna, Gospodzina, Matko zwolena, Maryja, Ziści nam, spuści nam! Kyrie, eleison. Twego dzieła Krzciciela, Bożycze, Usłysz głosy, napełń myśli człowiecze. Słysz modlitwę, jąż nosimy, A dać raczy, Jegoż prosimy: A na świecie zbożny pobyt, Po żywocie rajski przebyt. Kyrie, eleison.</p>
     </div>
 
     <div class="section">
     <p id="przypis-P">
 
-      <h2>Pod Twoją obronę <a href="#przypis-podtwojaobrone"><sup>[modlitwa]</sup></a></h2>
+      <h2>Pod Twoją obronę <a href="#przypis-podtwojaobrone"><sup>[***]</sup></a></h2>
       <p>Pod Twoją obronę uciekamy się, Święta Boża Rodzicielko, naszymi prośbami racz nie gardzić w potrzebach naszych, ale od wszelakich złych przygód racz nas zawsze wybawiać, Panno chwalebna i błogosławiona. O Pani nasza, Orędowniczko nasza, Pośredniczko nasza, Pocieszycielko nasza. Z Synem swoim nas pojednaj, Synowi swojemu nas polecaj, swojemu Synowi nas oddawaj. Amen.</p>
     </div>
 
@@ -93,7 +173,7 @@ header {
     <div class="section">
     <p id="przypis-O">
 
-      <h2>Akt oddania się Matce Bożej <a href="#przypis-oddanie"><sup>[modlitwa]</sup></a></h2>
+      <h2>Akt oddania się Matce Bożej <a href="#przypis-oddanie"><sup>[***]</sup></a></h2>
       <p>O Maryjo, Niepokalana Matko Boga i moja Matko, Tobie poświęcam całe moje życie, wszystko, czym jestem i co posiadam. Oddaję Ci moje serce, moją duszę, moje myśli, moje pragnienia. Ty, która jesteś Matką miłosierdzia, prowadź mnie każdego dnia ku Jezusowi. Przyjmij ten akt mojego zawierzenia i oddania, i uczyń mnie narzędziem pokoju, wiary i miłości. Chcę żyć zawsze z Tobą, przez Ciebie, i dla Jezusa – Twojego Syna, w mocy Ducha Świętego. Amen.</p>
     </div>
 
@@ -101,35 +181,57 @@ header {
 <div class="section" style="background-color:#f6e7ba; padding:20px; border-radius:12px">
   <h2 style="text-align:center">🖋️ Od autora</h2>
 
-  <p>Ta książka nie jest traktatem teologicznym ani rozprawą naukową. Powstała jako prosty przewodnik duchowy – dla tych, którzy chcą poznać Maryję sercem, a nie tylko rozumem.</p>
+  <p><p><span class="dropcap">T</span>a książka nie jest traktatem teologicznym ani rozprawą naukową. 
+    Powstała jako prosty przewodnik duchowy – dla tych, którzy chcą poznać Maryję sercem, a nie tylko rozumem.
+Każde duchowe przeżycie wyrażone przez pryzmat wrażliwości języka, może akurat trafić do konkretnego serca.</p>
 
-  <p>Każde duchowe przeżycie wyrażone przez pryzmat wrażliwości języka, może akurat trafić do konkretnego serca.</p>
+  <p>Wielu mogłoby zapytać: „Po co kolejna książka o Maryi, skoro już tyle zostało napisane?” 
+    Ale właśnie takie pytanie często podsuwa szatan – on zawsze chce, byśmy przestali mówić o Niej, 
+    przestali się modlić, uznali, że już wystarczy.</p>
+<p><strong>Ale to właśnie na prośbę Maryi Pan Jezus uczynił pierwszy swój cud w Kanie Galilejskiej.</strong> 
+  To do Niej, a nie bezpośrednio do Jezusa, zwrócono się z problemem: 
+  <em>„Nie mają wina.”</em> Maryja nie zatrzymała tej prośby dla siebie, ale poszła z nią do swojego Syna. 
+</p> <p>To pokazuje Jej rolę jako <strong>Matki i Pośredniczki</strong> – Ona widzi nasze braki i zanosi je do Jezusa. 
+  Dzięki Jej wstawiennictwu wydarzył się pierwszy cud, a Maryja wskazuje nam drogę mówiąc: 
+  <em>„Zróbcie wszystko, cokolwiek On wam powie.”</em></p>
+  <p>Każde nowe świadectwo, 
+    każda modlitwa i każda książka o Maryi to kolejny promień światła, który prowadzi nas bliżej Jezusa.</p>
 
-  <p>Wielu mogłoby zapytać: „Po co kolejna książka o Maryi, skoro już tyle zostało napisane?” Ale właśnie takie pytanie często podsuwa szatan – on zawsze chce, byśmy przestali mówić o Niej, przestali się modlić, uznali, że już wystarczy.</p>
+<p>Bo czy jest coś piękniejszego, niż pisać o Maryi, rozważać Jej życie i znaki, 
+trwać przy Niej i modlić się Jej modlitwami – prosić?</p>
 
-  <p>Tymczasem Kościół od wieków pokazuje coś odwrotnego: że każde nowe świadectwo, każda modlitwa i każda książka o Maryi to kolejny promień światła, który prowadzi nas bliżej Jezusa.</p>
+<p><em>„Czy zdajemy sobie sprawę z niezwykłego daru, jaki każdy człowiek otrzymał od Boga 
+w postaci Anioła Stróża? Aniołowie nie działają własną siłą, ale mocą Boga.”</em> – ks. Piotr Glas</p>
 
-  <p><strong>Bo czy jest coś piękniejszego, niż pisać o Maryi, rozważać Jej życie i znaki, trwać przy Niej i modlić się Jej modlitwami – aby na nowo odkrywać Jej obecność w historii Kościoła i w życiu każdego z nas?</strong></p>
+<p>Potrafią ocalić człowieka z największego niebezpieczeństwa – tak jak anioł, 
+który uwolnił Piotra z więzienia. Święci wielokrotnie świadczyli o ich mocy: 
+św. Jan Bosko mówił, że szatan drży i ucieka na widok Anioła Stróża, 
+a św. Ojciec Pio zachęcał: <em>„Przywołaj swojego Anioła – on pragnie ci pomóc bardziej, 
+niż ty sam chcesz być uratowany.”</em></p>
 
-  <p>Zebrałem w tej książce świadectwa, opisy objawień, refleksje oraz znaki, które Maryja zostawiła w historii Kościoła. Wiele z tych treści było już wcześniej opracowywane w różnych publikacjach, dokumentach i świadectwach – ja zebrałem je i opracowałem na nowo, w formie osobistej opowieści, aby stały się pomocą w modlitwie i pogłębieniu wiary.</p>
+<p><strong>Nie zapominajmy, że Maryja jest Królową Aniołów.</strong>
+Trzymając się Jej ręki, mamy pewność, że także nasi Aniołowie Stróżowie otaczają nas 
+swoją troską i prowadzą ku Bogu.</p>
 
-  <p>Nie jest moim celem zastępować inne dzieła o Maryi. Pragnę raczej, aby ta publikacja była jedną z wielu modlitw serc – słowem, które może kogoś obudzi, pocieszy, poprowadzi ku Jezusowi. Bo Maryja zawsze prowadzi do Niego. Uczy pokory, wiary i wytrwałości. Dlatego wszystkie przytoczone historie i refleksje nie są celem same w sobie, ale drogą – by spotkać Tego, który jest jedynym Zbawicielem.</p>
+  <p>Znajdziesz w tej książce świadectwa, opisy objawień, refleksje oraz znaki, które Maryja zostawiła w historii Kościoła. Wiele z tych treści było już wcześniej opracowywane w różnych publikacjach, dokumentach i świadectwach – zebrałem je i opracowałem  w formie osobistej opowieści, aby stały się pomocą w modlitwie i pogłębieniu wiary.</p>
 
-  <p>Jeśli trzymasz tę książkę w dłoni, być może to znak, że Ona sama chciała Ci ją podsunąć. Zacząłem się zastanawiać nad znakami, które Maryja daje nam każdego dnia – delikatnie, ale z nieskończoną miłością. Z tych myśli narodziło się pragnienie, by zebrać w jednym miejscu duchową opowieść – nie tylko o objawieniach, ale o całej drodze, którą Maryja przeszła: od proroctw i zapowiedzi w Starym Testamencie, poprzez narodziny i życie Jezusa, aż po Jej duchową obecność w historii Kościoła i osobistym doświadczeniu wierzących.</p>
+  <p>Jeśli trzymasz tę książkę w dłoni, być może to znak, że Ona sama chciała Ci podsunąć tę duchową opowieść – nie tylko o objawieniach, ale o całej drodze, którą  przeszła: od proroctw i zapowiedzi w Starym Testamencie, poprzez narodziny i życie Jezusa, aż po duchową obecność w historii Kościoła i osobistym doświadczeniu wierzących.
 
-  <p>To opowieść o Maryi, która zawsze była blisko zwykłych ludzi – zagubionych, porzuconych, słabych. O Matce, bez której wielu z nas nie dałoby rady. O Niewieście obleczonej w słońce, przez którą objawia się chwała Boga. O czułej Obecności, która nie przestaje nas otaczać swoją opieką.</p>
-
-  <p>To wszystko – Jej obecność, pomoc, troska – nie są owocem naszych zasług, ale darem samego Boga. To On dał nam Maryję jako Matkę i Orędowniczkę. I za ten dar dziękuję codziennie z głębi serca.</p>
-
-  <p>„Do kogo się uciec, jak nie do Matki?” – te słowa noszę w sercu od dawna. Maryja jest naszą Matką. Nie tylko Matką Jezusa, ale Matką każdego z nas. Ona rozumie nasze życie – bo sama przeżyła je całkowicie jako człowiek. Doświadczyła wszystkiego: od narodzin jako dziecko, przez życie w ubóstwie, codzienność pracy, małżeństwo z Józefem, opiekę nad Synem, aż po całkowite zawierzenie woli Boga – nawet wtedy, gdy prowadziła przez cierpienie i krzyż.</p>
+  <p>„Do kogo się uciec, jak nie do Matki?” – Maryi, która zawsze była blisko zwykłych ludzi – zagubionych, porzuconych, słabych.. Ona rozumie nasze życie – bo sama przeżyła je całkowicie jako człowiek. Doświadczyła wszystkiego: od narodzin jako dziecko, przez życie w ubóstwie, codzienność pracy, małżeństwo z Józefem, opiekę nad Synem, aż po całkowite zawierzenie woli Boga – nawet wtedy, gdy prowadziła przez cierpienie i krzyż.</p>
 
   <p>Maryja zna radość macierzyństwa, ale i ból niezrozumienia. Zna lęk o dziecko, ucieczkę w nocy, życie w ukryciu. Doświadczyła samotności, trudnych relacji, milczenia Boga i wreszcie niewyobrażalnej męki – śmierci Syna na Jej oczach. Stała pod krzyżem nie jako bezradna ofiara, ale jako ta, która ufa i wierzy, nawet wtedy, gdy wszystko wokół się rozpada.</p>
 
   <p>Dlatego możemy przyjść do Niej z każdą sprawą – bo Ona zna nasze serce. I właśnie przez to, że przeszła przez ludzkie życie – może być dla nas najczulszą Przewodniczką i Wspomożycielką.</p>
 
-  <p>Maryja nie przychodzi, by zasłaniać Boga – ale by pomóc nam do Niego dojść. Pokazuje, że nawet w najciemniejszym momencie można powiedzieć: „Fiat – niech mi się stanie”. I choć sama została wzięta do nieba – nigdy nie przestała być blisko tych, którzy cierpią tu, na ziemi.</p>
+  <p>Maryja nie przychodzi, by zasłaniać Boga – ale by pomóc nam do Niego dojść. I choć sama została wzięta do nieba – nigdy nie przestała być blisko tych, którzy cierpią tu, na ziemi.</p>
 
-  <p><strong>„Zapraszam Cię, byś przeszedł tę drogę razem ze mną – nie tylko, aby przyjąć i zrozumieć treść tej książki, ale aby zacząć się modlić Znakami Maryi, których być może dotąd nie znałeś, a które Ona zostawiła.”</strong></p>
+  <p>Zapraszam Cię, byś przeszedł tę drogę razem ze mną – nie tylko, aby przyjąć i zrozumieć treść tej książki, 
+    ale aby zacząć się modlić Znakami Maryi. Bo nie chodzi tylko o to, by się zachwycić, 
+    wzruszyć czy zatrzymać na pięknych słowach. Dziś wielu szuka niezwykłych doświadczeń – 
+    wielkich adoracji, wzniosłych nawróceń, świadectw, pieśni uwielbienia, 
+    a najchętniej zewnętrznych znaków. A kiedy ktoś zaproponuje: <em>„Zmówmy razem różaniec.”
+    </em> – to już nie… Czemu tak trudno modlić się na różańcu? Myślę, 
+    że w kolejnych rozdziałach tej książki znajdziemy odpowiedź na to pytanie i pokochamy tę piękną modlitwę.</p>
 
   <blockquote style="font-style:italic; margin-left:20px; color:#444">
     Pomnij, o Najświętsza Panno Maryjo,<br>
@@ -149,19 +251,31 @@ header {
   </blockquote>
 </div>
 
+<div style="text-align: center; margin: 20px 0;">
+  <img src="ornament1.png" alt="ornament" style="height: 5px; width: auto;">
+</div>
 
 <!-- ROZDZIAŁ 1 -->
-<div class="section">
-  <h2>Rozdział 1: Jak spotkać Maryję?</h2>
+<div class="chapter-banner">
+  <div class="chapter-number">Rozdział 1</div>
+  <hr>
+  <div class="chapter-title">Jak spotkać Maryję?</div>
+  <div class="chapter-quote">„Maryja jest moją Matką.”</div>
 </div>
+
 <div class="section">
+  <p><span class="dropcap">S</span>potkanie z Maryją zaczyna się od jednej rzeczy: 
+  <strong>pragnienia</strong>. Ona przychodzi do serca, które szuka Boga. 
+  Znajdziesz Ją przy krzyżu, w różańcu, w chwili modlitwy.</p>
 
-  <p>Spotkanie z Maryją zaczyna się od jednej rzeczy: <strong>pragnienia</strong>. Ona przychodzi w ciszy, do serca, które szuka Boga. Znajdziesz Ją przy krzyżu, w różańcu, w chwili modlitwy.<br><br>
-Kiedy spojrzysz Jej w twarz, poznasz Ją od razu — Jej Oblicze nosisz w sobie od chrztu. Maryja zawsze wzywa do jednego: do modlitwy różańcowej, która prowadzi do Jezusa.<br><br>
-Nie czekaj na cud. Uklęknij, weź różaniec i powiedz z serca:<br>
-<em>„Maryja jest moją Matką.”</em></p>
+  <p>Kiedy spojrzysz Jej w twarz, poznasz Ją od razu — Jej Oblicze nosisz w sobie od chrztu. 
+  Maryja zawsze wzywa do jednego: do modlitwy różańcowej, która prowadzi do Jezusa.</p>
 
+  <p>Nie czekaj na cud. Uklęknij, weź różaniec i powiedz z serca:
+  <em>„Maryja jest moją Matką.”</em></p>
 </div>
+
+
 <div class="section">
 
   <p><strong>RÓŻANIEC</strong><br>
@@ -192,7 +306,7 @@ Najgłębsze spotkania z Maryją dzieją się w bólu. Nie po to, by cierpienie 
 
   <p><strong>EUCHARYSTIA</strong><br>
   „Mój Syn jest obecny w Eucharystii. Nie obrażajcie Go!” — Akita, Fatima<br>
-  Maryja zawsze wskazuje na Jezusa. Szczególnie obecnego w Hostii. Nie ma bliższego miejsca spotkania z Nią — niż cisza adoracji.</p>
+  Maryja zawsze wskazuje na Jezusa. Szczególnie obecnego w Hostii.</p>
 
   <p><strong>POKUTA</strong><br>
   „Pokuty, pokuty, pokuty!” — Lourdes, Fatima<br>
@@ -209,8 +323,8 @@ Maryja nie mówi dla siebie. Ona mówi, by przybliżyć do Syna. Kto Jej słucha
 </div>
 
 <div class="section">
-  <h3>📿 „Zdrowaś Maryjo” — modlitwa, którą znamy… czy naprawdę?</h3>
-  <p>Wielu ludzi zna na pamięć treść modlitwy „Zdrowaś Maryjo”. Wypowiada ją codziennie, czasem dziesiątki razy. 
+  <h3> „Zdrowaś Maryjo” — modlitwa, którą znamy… czy naprawdę?</h3>
+  <p><p><span class="dropcap">W</span>ielu ludzi zna na pamięć treść modlitwy „Zdrowaś Maryjo”. Wypowiada ją codziennie, czasem dziesiątki razy. 
   Ale niewielu do końca rozumie jej głębię i <strong>niewyobrażalną moc</strong>, która płynie z jej treści i znaczenia.</p>
 
   <p>To nie jest ludzki wymysł. To modlitwa całkowicie biblijna — zakorzeniona w Ewangelii, w wydarzeniach, które odmieniły historię świata. 
@@ -229,21 +343,27 @@ Maryja nie mówi dla siebie. Ona mówi, by przybliżyć do Syna. Kto Jej słucha
   <p><strong>„Módl się za nami, grzesznymi”</strong><br>
   To nasza pokorna prośba, by Ta, która nosiła Boga, zaniosła nasz szept przed Jego tron.</p>
 
-  <p>📿 Wypowiadając „Zdrowaś Maryjo”, stajemy się uczestnikami tamtego spotkania: z Aniołem zwiastującym cud, z Maryją, która słucha i wierzy, 
+  <p> Wypowiadając „Zdrowaś Maryjo”, stajemy się uczestnikami tamtego spotkania: z Aniołem zwiastującym cud, z Maryją, która słucha i wierzy, 
   z Elżbietą, która rozpoznaje swego Pana, a przede wszystkim — z Jezusem, który przychodzi do nas cicho, ale naprawdę.</p>
 </div>
 
-    
+ <div style="text-align: center; margin: 20px 0;">
+  <img src="ornament1.png" alt="ornament" style="height: 5px; width: auto;">
+</div>   
 <!-- ROZDZIAŁ 2  -->
 
-<div class="section" style="background-color:#f6e7ba; border-radius:15px; padding:20px; margin-bottom:20px;">
-  <h2 style="text-align:center;">Rozdział 2: Co święci mówią o spotkaniu z Maryją?</h2>
-  <p style="text-align:center;"><em>Niektórzy widzieli Ją oczami. Inni – sercem. Ale wszyscy mówili to samo: kto naprawdę spotka Maryję, już nigdy nie pozostaje sam.</em></p>
+<div class="chapter-banner">
+  <div class="chapter-number">Rozdział 2</div>
+  <hr>
+  <div class="chapter-title">Co święci mówią o spotkaniu z Maryją?</div>
+  <div class="chapter-quote">„Co Maryja mówi w swoich objawieniach”?</div>
 </div>
+
+
 <div class="section">
 
   <p>
-    Niewątpliwie jedno z najbardziej poruszających spotkań w historii zbawienia wydarzyło się na drodze na Golgotę.
+   <p><p><span class="dropcap">N</span>iewątpliwie jedno z najbardziej poruszających spotkań w historii zbawienia wydarzyło się na drodze na Golgotę.
     W tłumie, wśród krzyków i szyderstw, Jezus dostrzega swoją Matkę.
     Ona — milcząca, ale cała obecna. On — obciążony krzyżem, a jednak całkowicie świadomy Jej obecności.
   </p>
@@ -268,111 +388,79 @@ Maryja nie mówi dla siebie. Ona mówi, by przybliżyć do Syna. Kto Jej słucha
 </div>
 
 <div class="section">
-    <h2>✨ św. Ludwik Maria Grignion de Montfort (1673–1716)</h2>
-
-„Maryja jest najpewniejszą, najłatwiejszą, najkrótszą i najdoskonalszą drogą do Jezusa Chrystusa.” 
-
-<p>
-Św. Ludwik nie miał prywatnego objawienia Maryi, jak Fatima czy Rue du Bac. 
-Całą swoją duchowość oparł na modlitwie, rozważaniu Pisma Świętego i Tradycji Kościoła. 
-Owocem jego życia jest głębokie nabożeństwo całkowitego oddania się Maryi – <em>Totus Tuus</em> („Cały Twój, Maryjo”).
-</p>
-
-<p>
-W swoim dziele <em>„Traktat o prawdziwym nabożeństwie do Najświętszej Maryi Panny”</em> zaproponował 33-dniowe przygotowanie duchowe, które prowadzi do uroczystego aktu zawierzenia. 
-W tym akcie wierny oddaje Maryi całego siebie – swoje ciało, duszę, myśli, pragnienia i dobre uczynki – aby Ona w pełni prowadziła go do Jezusa.
-</p>
-
-<p>
-Zawierzenie według jego nauki to świadoma decyzja życia w jedności z Nią i wypełniania woli Boga w codzienności.
-</p>
-
-<p>
-Nie nakazał noszenia jednego, konkretnego znaku, ale wielu uczniów jego duchowości zakłada medaliki, szkaplerze lub krzyżyki jako przypomnienie o oddaniu się Maryi. 
-Jego nauka ukształtowała wielu świętych, m.in. św. Maksymiliana Kolbego, kard. Stefana Wyszyńskiego i św. Jana Pawła II, który uczynił słowa <em>Totus Tuus</em> swoim papieskim mottem.
-</p>
-
-<p><strong>🕊️ Modlitwa zawierzenia według św. Ludwika:</strong>
-<blockquote>
-Maryjo, oddaję Ci całego siebie: moje ciało i duszę, dobra wewnętrzne i zewnętrzne, a nawet wartość moich dobrych uczynków – przeszłych, obecnych i przyszłych. 
-Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do mnie należy, według Twojego upodobania, dla większej chwały Boga.
-</blockquote>
-
+<h3>✨ św. Bernadetta Soubirous (Lourdes, 1858)</h3>
+<p><em>„Widziałam Piękną Panią. Była ubrana w białą suknię, przepasaną niebieską wstęgą. Na stopach miała złote róże, a w rękach różaniec.”</em></p>
+<p><em>„Piękna Pani spojrzała ku niebu i wypowiedziała: Jestem Niepokalane Poczęcie.”</em></p>
+<p><em>„Ja ci przyrzekam uczynić cię szczęśliwą, ale nie tu na tym świecie, lecz w niebie.”</em></p>  
+<p><em>„Moim zadaniem jest mówić wam: widziałam Maryję. Nie jest moim zadaniem sprawić, abyście w to wierzyli.”</em></p>
   <hr>
-
-  <h2>✨ św. Maksymilian Maria Kolbe</h2>
-  <p>„Kto należy do Maryi, ten nie zginie.” Najlepszym sposobem spotkania Maryi jest całkowite oddanie się Jej jako narzędziu, aby mogła czynić przez nas wolę Bożą. Modlitwa i zawierzenie otwierają drogę do jedności z Nią.</p>
-  <p><strong>🕊️ Modlitwa:</strong> „O Niepokalana, Tobie oddaję całkowicie siebie, całe moje ciało i duszę, wszystkie moje uczynki, myśli i pragnienia – bądź moją Panią, moją Królową i moją Matką.”</p>
+  <h3>✨ św. Katarzyna Labouré</h3>
+  <p><em>„Maryja przyszła i usiadła przy mnie.”</em></p> 
+  <p>Widziała Maryję fizycznie, kiedy ta ukazała jej medalik — Cudowny Medalik, który Maryja sama nazwała „łaską dla świata”.</p>
+  <p><em>„Widziałam Najświętszą Dziewicę, która stała na kuli ziemskiej, pod Jej stopami znajdował się wąż. Na Jej palcach błyszczały pierścienie ozdobione drogimi kamieniami, z których biły promienie na ziemię. Usłyszałam głos: Te promienie to symbole łask, które spływają na dusze, które o nie proszą.”</em></p>
+  <p><em>„Na koniec ujrzałam napis wokół postaci Maryi: O Maryjo bez grzechu poczęta, módl się za nami, którzy się do Ciebie uciekamy.”</em></p>
   <hr>
-
-  <h2>✨ św. Jan Paweł II</h2>
-  <p>„Różaniec to modlitwa tych, którzy kochają, ale nie wiedzą, jak mówić.” Papież Maryjny, którego zawołanie „Totus Tuus” odzwierciedlało całkowite oddanie się Maryi. Spotykał Ją na różańcu, w ciszy i zawierzeniu.</p>
+  <h3>✨ św. Maksymilian Maria Kolbe</h3>
+  <p>„Kto należy do Maryi, ten nie zginie.” Najlepszym sposobem spotkania Maryi jest całkowite oddanie się Jej jako narzędziu, aby mogła czynić przez nas wolę Bożą.</p>
+  <p><em>„Dozwól mi chwalić Cię, Panno Przenajświętsza. Daj mi moc przeciw nieprzyjaciołom Twoim.”</em></p>
+  <p><em>„Całkowicie należę do Ciebie, o Niepokalana! Wszystko, co mam, jest Twoje.”</em></p>
+  <p><em>„Nigdy nie bój się kochać Maryi zbyt mocno. Nigdy nie będziesz kochał Jej tak, jak Jezus.”</em></p>
+  <hr>
+  <h3>✨ św. Jan Paweł II</h3>
+  <p><em>„Totus Tuus. To zawierzenie Maryi wyraża moją głęboką wiarę, że Ona zawsze prowadzi do Chrystusa.”</em></p>
+  <p><em>„Dzięki Niej nauczyłem się oddawać się całkowicie Bogu.”</em></p>
   <p><strong>🕊️ Modlitwa:</strong> „Totus Tuus ego sum, et omnia mea tua sunt. Accipio Te in mea omnia. Praebe mihi cor Tuum, Maria.”</p>
   <hr>
-
-  <h2>✨ św. Faustyna Kowalska</h2>
-  <p>„Ona mnie uczy, jak żyć dla Boga.” Maryja objawiła się Faustynie i powiedziała: „Bądź odważna. Nie lękaj się przeszkód, Ja jestem z tobą.”</p>
-  <p><strong>🕊️ Modlitwa:</strong> „O Maryjo, moja Matko i Pani, prowadź mnie do Boga, ucz mnie przyjmować wolę Jego świętą, nawet gdy krzyż przygniata duszę.”</p>
+  <h3>✨ św. Faustyna Kowalska</h3>
+  <p>Choć głosiła orędzie Jezusa Miłosiernego, to Maryja była dla niej przewodniczką i Matką.</p>
+  <p>W „Dzienniczku” pisała:<em>„Maryjo, Matko moja i Pani moja, oddaję Ci duszę i ciało moje, życie i śmierć moją i to, co po niej nastąpi. Wszystko składam w Twoje ręce, o Matko moja. Okryj mnie swym płaszczem dziewiczym i udziel mi łaski czystości serca, duszy i ciała.” (Dzienniczek 79)”.</em></p>
+  <p>„Maryja powiedziała mi: <em>„Jestem Matką dla ciebie z niezgłębionego miłosierdzia Boga. Trwaj pod moją opieką i wprowadzaj w życie wolę Syna mojego.” (Dzienniczek, nr 449).”</em></p>
   <hr>
-
-  <h2>✨ św. o. Pio</h2>
+  <h3>✨ św. o. Pio</h3>
   <p>„Kochać Maryję – to nie uczucie, to życie.” Maryja była przy nim zawsze — szczególnie w walce duchowej i cierpieniu.</p>
-  <p><strong>🕊️ Modlitwa:</strong> „O Maryjo, moja Matko, nie opuszczaj mnie w godzinie próby. Bądź moją siłą w walce, moim światłem w ciemności, moją pociechą w cierpieniu.”</p>
   <hr>
-        <p id="przypis-J">
-
-  <h2>✨ bł. Kard. Stefan Wyszyński</h2>
-  <p>„Wszystko postawiłem na Maryję.” Nie miał widzeń — miał wiarę. Spotkał Ją w narodzie i jego zaufaniu.</p>
-
+  <p id="przypis-J">
+  <h3>✨ bł. Kard. Stefan Wyszyński</h3>
+  <p><em>„Wszystko postawiłem na Maryję.”</em> Nie miał widzeń — miał wiarę. Spotkał Ją w narodzie i jego zaufaniu.</p>
   <p>W czasie uwięzienia (1953–1956) kardynał Stefan Wyszyński napisał tekst ślubowania jako akt duchowej odnowy narodu.</p>
-
-  <p>Choć Prymas był wtedy uwięziony, jego tekst został publicznie odczytany na Jasnej Górze wobec milionowego tłumu wiernych, a naród powtórzył słowa przysięgi z głębi serca.</p>
-
-  <p>Śluby nie były tylko uroczystą modlitwą. Były decyzją. Zawierzeniem. Zobowiązaniem. Stanowiły świadomy powrót narodu do Maryi jako Królowej Polski.</p>
-
-  <p>Śluby Jasnogórskie są do dziś aktualne<sup><a href="#przypis-jasnogorskie">[modlitwa]</a></sup>.</p>
-
+  <p>Śluby Jasnogórskie są do dziś aktualne<sup><a href="#przypis-jasnogorskie">[***]</a></sup>.</p>
   <p><strong>🕊️ Apel Jasnogórski:</strong> „Maryjo, Królowo Polski — jestem przy Tobie, pamiętam, czuwam.”</p>
   <hr>
-
-  <h2>✨ św. Teresa z Lisieux</h2>
-  <p>„Maryja to bardziej Matka niż Królowa.” Dla niej Maryja była codzienną obecnością — nie z objawień, ale z czułości.</p>
-  <p><strong>🕊️ Modlitwa:</strong> „O moja dobra Matko, spójrz na mnie i nie opuszczaj. Naucz mnie kochać Twego Syna tak, jak Ty Go kochałaś.”</p>
+  <h3>✨ Fatima, 1917 — Łucja, Hiacynta i Franciszek Marto</h3>
+  <p><em>„Odmówcie codziennie różaniec, aby uprosić pokój dla świata i koniec wojny.”</em></p>
+  <p><em>„Przyszłam prosić o poświęcenie Rosji mojemu Niepokalanemu Sercu i o Komunię wynagradzającą w pierwsze soboty miesiąca.”</em></p>
+  <p><em>„Na koniec moje Niepokalane Serce zatriumfuje.”</em></p>
   <hr>
-
-  <h2>✨ św. Bernard z Clairvaux</h2>
-  <p>„O Najświętsza Dziewico, niech przez Ciebie znajdę łaskę, którą przez Ciebie się daje.” To on ułożył słynną modlitwę: „Pomnij, o Najświętsza Panno Maryjo…”. Uczył, że Maryja to Gwiazda Morza — wskazująca drogę zagubionym duszom.</p>
-  <p><strong>🕊️ Modlitwa:</strong> „Pomnij, o Najświętsza Panno Maryjo, że nigdy nie słyszano, aby ktokolwiek, kto się do Ciebie uciekał, był przez Ciebie opuszczony…”</p>
-  <hr>
-
-  <h2>✨ św. Alfons Maria Liguori</h2>
-  <p>„Wszyscy, którzy są zbawieni, są to dzieci Maryi.” Uczył, że prawdziwe nabożeństwo do Maryi zawsze rodzi miłość do Jezusa i prowadzi do świętości.</p>
-  <p><strong>🕊️ Modlitwa:</strong> „O Maryjo, moja Matko i moja nadziejo, wspomagaj mnie w każdej potrzebie i w godzinie śmierci, bym był zbawiony przez Twoje wstawiennictwo.”</p>
-  <hr>
-
-  <h2>✨ św. Katarzyna Labouré</h2>
-  <p>„Maryja przyszła i usiadła przy mnie.” Widziała Maryję fizycznie, kiedy ta ukazała jej medalik — Cudowny Medalik, który Maryja sama nazwała „łaską dla świata”.</p>
-  <p><strong>🕊️ Modlitwa:</strong> „O Maryjo bez grzechu poczęta, módl się za nami, którzy się do Ciebie uciekamy.”</p>
-  <hr>
-
-  <h2>✨ św. Ludwik Orione</h2>
-  <p>„Jeśli zostaniesz Jej wierny, Ona będzie Twoją Matką aż po grób – i dalej.” Spotkanie z Maryją dla niego oznaczało służbę ubogim i ofiarowanie całego życia w Jej ręce.</p>
+  <h3>✨ św. Ludwik Orione</h3>
+  <p><em>„Jeśli zostaniesz Jej wierny, Ona będzie Twoją Matką aż po grób – i dalej.”</em></p>
+  <p>Spotkanie z Maryją dla niego oznaczało służbę ubogim i ofiarowanie całego życia w Jej ręce.</p>
   <p><strong>🕊️ Modlitwa:</strong> „O Matko najczystsza, daj mi serce pełne ognia miłości do Jezusa, które będzie całkowicie Twoje.”</p>
   <hr>
-
-  <h2>✨ bł. Alan de la Roche</h2>
-  <p>„Różaniec będzie ocaleniem świata.” To jemu Maryja miała objawić 15 obietnic dla tych, którzy odmawiają różaniec z wiarą. Rozpowszechniał tę modlitwę jako duchowy miecz przeciwko złu.</p>
+  <h3>✨ bł. Alan de la Roche</h3>
+  <p><em>„Różaniec będzie ocaleniem świata.” </em></p>
+  <p>To jemu Maryja miała objawić 15 obietnic dla tych, którzy odmawiają różaniec z wiarą. Rozpowszechniał tę modlitwę jako duchowy miecz przeciwko złu.</p>
   <p><strong>🕊️ Modlitwa:</strong> „Panie Jezu, przez różaniec Maryi otwórz moje serce na tajemnice zbawienia i spraw, bym ukochał Twoją Matkę.”</p>
   <hr>
-
-  <h2>✨ św. Jan Bosko</h2>
-  <p>„Kto ufa Maryi, ten nigdy nie zginie.” Maryja ukazywała mu się w snach i wizjach jako „Wspomożycielka Wiernych”. Całe swoje dzieło dla młodzieży oddał Jej w opiekę.</p>
+  <h3>✨ św. Jan Bosko</h3>
+  <p>Maryja ukazywała mu się w snach i wizjach jako <em>„Wspomożycielka Wiernych”.</em> Całe swoje dzieło dla młodzieży oddał Jej w opiekę.</p>
+  <p><em>„Wszystko, co uczyniłem, zawdzięczam Maryi Wspomożycielce.”
+  <p><em>„Miejcie wielkie nabożeństwo do Najświętszej Maryi Panny. Ona jest potężna. Jeżeli Jej zaufacie, ujrzycie, co to są cuda.”</em></p>  
   <p><strong>🕊️ Modlitwa:</strong> „Maryjo Wspomożenie Wiernych, prowadź mnie za rękę przez życie, przez trud, aż do domu Ojca.”</p>
+  <hr>
+  <h3>✨ św. Szymon Stock</h3>
+  <p>Matka Boża ukazała mu się, trzymając w dłoniach szkaplerz karmelitański. Powiedziała:</p>
+  <p><em>„Przyjmij, najmilszy synu, szkaplerz twego zakonu, jako znak mego braterstwa, przywilej dla ciebie i wszystkich karmelitów. Kto w nim umrze, nie zazna ognia piekielnego.”</em></p>   
+  <hr>
+  <h3>✨ Siostra Justyna Bisqueyburu</h3>
+  <p>Matka Boża ukazała jej wzór nowego szkaplerza — Zielonego Szkaplerza Niepokalanego Serca Maryi</p>
+  <p>Maryja zapewniła, że każdy, kto będzie nosił zielony szkaplerz i odmawiał codzienną modlitwę:</p>
+  <p><em>„Niepokalane Serce Maryi, módl się za nami teraz i w godzinę śmierci naszej.”</em></p>
+  <p>Otrzyma łaskę powrotu do Boga,nawet najbardziej zagubiony.</p>   
 </div>
 
 <div class="section">
 
-    <strong>Święci wszystkich epok spotykali Maryję w różny sposób</strong> — jedni w widzeniach, inni w ciszy serca. 
+    <strong>Święci wszystkich czasów spotykali Maryję w różny sposób</strong> — jedni w widzeniach, inni w ciszy serca. 
     Choć ich doświadczenia były odmienne, przesłanie jest wspólne: 
     <em>prawdziwe spotkanie z Maryją przemienia życie i daje pewność, że człowiek już nigdy nie jest sam</em>.
   </p>
@@ -382,23 +470,33 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
     Obietnice, które są zaproszeniem, by iść dalej, głębiej, odważniej.
   </p>
 </div>
+
+<div style="text-align: center; margin: 20px 0;">
+  <img src="ornament1.png" alt="ornament" style="height: 5px; width: auto;">
+</div>    
          <p id="przypis-R">
    
-<div class="section" style="background-color:#f6e7ba; border-radius:15px; padding:20px; margin-bottom:20px;">
-  <h2 style="text-align:center;">Rozdział 3: Obietnice Maryi</h2>
-  <p style="text-align:center;"><em>„Ja was nie opuszczę. Wasza Matka.”</em></p>
+<div class="chapter-banner">
+  <div class="chapter-number">Rozdział 3</div>
+  <hr>
+  <div class="chapter-title">Obietnice Maryi</div>
+  <div class="chapter-quote">„Ja was nie opuszczę. Wasza Matka.”</div>
 </div>
+
+
 <div class="section">
 
-<h3>🌹 Obietnice Maryi dla odmawiających różaniec<sup><a href="#przypis-różaniec">[modlitwa]</a></sup></h3>
+<h3>🌹 Obietnice Maryi dla odmawiających różaniec<sup><a href="#przypis-różaniec">[***]</a></sup></h3>
 
-<p>Jak powiedziała siostra Fernanda z Fatimy: <em>„Różaniec jest jak mleko dla dziecka – pierwszy pokarm dla duszy. Gdy zaczynasz go pić, zaczynasz rosnąć duchowo, a Maryja bierze cię za rękę i prowadzi do Jezusa.”</em></p>
+<p><p><span class="dropcap">J</span>ak powiedziała siostra Fernanda z Fatimy: <em>„Różaniec jest jak mleko dla dziecka – pierwszy pokarm dla duszy. Gdy zaczynasz go pić, zaczynasz rosnąć duchowo, a Maryja bierze cię za rękę i prowadzi do Jezusa.”</em></p>
 
   <p><strong>Maryja powtarzała to we wszystkich miejscach objawień:</strong><br>
   „Odmawiajcie codziennie różaniec.”</p>
 
   <blockquote style="font-style:italic; margin-left:20px; color:#444">
-    „Maryja nigdy nie zatrzymuje niczego dla siebie. Wszystko, czego dotyka, oddaje Bogu.”<br>— św. Ludwik Maria Grignion de Montfort
+    „Różaniec odmawiany z wiarą i pobożnością jest wielkim ratunkiem dla dusz i środkiem do zwycięstwa nad szatanem.”<br>
+    „Jedno Zdrowaś Maryjo świadomie i uważnie odmówione ma większą wartość niż setki mechanicznie wypowiedzianych słów.””<br>
+    — św. Ludwik Maria Grignion de Montfort
   </blockquote>
   <blockquote style="font-style:italic; margin-left:20px; color:#444">
     „Różaniec to modlitwa tych, którzy kochają, ale nie wiedzą, jak mówić.”<br>— św. Jan Paweł II
@@ -414,11 +512,10 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
   </blockquote>
 
 
-  <p>
-    Z modlitwy Kościoła, z przekazów objawień, a także ze świadectw świętych i zwykłych ludzi, którzy doświadczyli mocy tej modlitwy, można odczytać ciche, ale pewne obietnice Maryi.
+<p>Z modlitwy Kościoła, z przekazów objawień, a także ze świadectw świętych i zwykłych ludzi, którzy doświadczyli mocy tej modlitwy, można odczytać ciche, ale pewne obietnice Maryi.
     Na podstawie wielu przekazów zatwierdzonych przez Kościół wyłania się ogrom wspaniałych łask, które Maryja obiecuje w zamian za szczerą i wytrwałą modlitwę różańcową.
   </p>
-
+<hr>
     <li><strong>Szczególna opieka w życiu i przy śmierci</strong></li>
     <li><strong>Nawrócenie największych grzeszników</strong> – Nie ma serca tak zatwardziałego, którego różaniec nie mógłby skruszyć. Wytrwała modlitwa może sprowadzić łaskę przemiany nawet dla najbardziej zagubionych dusz.</li>
     <li><strong>Ochrona przed pokusami i złem</strong> – Każde „Zdrowaś Maryjo” jest ciosem w szatana i tarczą chroniącą duszę. Maryja otacza swoich modlących się płaszczem opieki, aby nie ulegli zwiedzeniu.</li>
@@ -431,7 +528,8 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
   <hr>
 
 
-<h3>🌹 Nowenna Pompejańska – „Modlitwa nie do odparcia”</h3>
+<h3>🌹 Nowenna Pompejańska</h3>
+  <p><strong><em>– „Modlitwa nie do odparcia”</strong></em></p>
   <blockquote style="font-style:italic; margin-left:20px; color:#444">
 — Bartolo Longo - 1879
   </blockquote>
@@ -447,10 +545,10 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
 <hr>
 
 <h3>🌹 15 obietnic różańcowych</h3>
+  <p><strong><em>– „Różaniec będzie ocaleniem świata.”</strong></em></p>
   <blockquote style="font-style:italic; margin-left:20px; color:#444">
 — bł. Alan de la Roche
   </blockquote>
-  <p><em>„Różaniec będzie ocaleniem świata.”</em></p>
 
   <h4>🔹 Wprowadzenie historyczne</h4>
   <p>W XV wieku błogosławiony Alan de la Roche (ok. 1428–1475), dominikanin i kaznodzieja, odnowił w Europie praktykę modlitwy różańcowej. Twierdził, że sam św. Dominik (XIII w.) otrzymał różaniec z nieba i że Matka Boża przekazała mu później 15 duchowych obietnic dla tych, którzy będą wiernie odmawiać tę modlitwę.</p>
@@ -477,9 +575,14 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
 <hr>
   <p id="przypis-K">
 
-  <h3>🌹 SZKAPLERZ KARMELITAŃSKI<sup><a href="#przypis-KARMEL">[obrazek]</a></sup> – Dar Matki Opiekuńczej</h3>
-  <p>
-    <strong>Św. Szymon Stock</strong> O.Carm urodził się pod koniec XII wieku w hrabstwie Kent w Anglii.
+  <h3>🌹 Szkaplerz karmelitański<sup><a href="#przypis-KARMEL">[obrazek]</a></sup></h3>
+    <p><strong><em>– Dar Matki Opiekuńczej</strong></em></p>
+      <blockquote>
+
+  — św. Szymon Stock
+      </blockquote>
+
+    <p>Urodził się pod koniec XII wieku w hrabstwie Kent w Anglii.
     Jeszcze przed narodzinami został przez matkę ofiarowany opiece Najświętszej Maryi Panny.
     W wieku 12 lat opuścił dom rodzinny, prowadząc przez 20 lat życie pustelnika w pniu starego dębu
     (stąd przydomek „Stock” – pień).
@@ -536,16 +639,18 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
 <hr>
    <p id="przypis-Z">
 <!-- zielony szkaplerz --> 
-<h3>🌹 ZIELONY SZKAPLERZ<sup><a href="#przypis-ZIELONY">[obrazek]</a></sup> – Dar Matki dla zagubionych serc</h3>
-<blockquote style="font-style:italic; margin-left:20px; color:#444">
+<h3>🌹 Zielony Szkaplerz<sup><a href="#przypis-ZIELONY">[obrazek]</a></sup></h3> 
+  <p><strong><em>– Dar Matki dla zagubionych serc</strong></em></p>
+<blockquote>  
+     
 — Siostra Justyna Bisqueyburu - objawienie Maryi
-<blockquote>
-  
-<p><em>„Ci, którzy będą go nosić z wiarą, otrzymają łaskę nawrócenia, uzdrowienia oraz szczególną pomoc w chwili śmierci.”</em> – obietnica Matki Bożej dana w Paryżu, 1840 r. młodej zakonnicy – siostrze Justynie Bisqueyburu.</p>
-<p>Zielony Szkaplerz to znak Niepokalanego Serca Maryi – szczególny dar dla osób oddalonych od Boga i tych, którzy potrzebują uzdrowienia duszy lub ciała. Jest narzędziem łaski i wyrazem macierzyńskiej troski Maryi o zagubione owce.</p>
+  </blockquote>
 
-<blockquote>
-  <p><em>„Niepokalane Serce Maryi, módl się za nami teraz i w godzinę śmierci naszej.”</em></p>
+<p><em>„Ci, którzy będą go nosić z wiarą, otrzymają łaskę nawrócenia, uzdrowienia oraz szczególną pomoc w chwili śmierci.”</em> – obietnica Matki Bożej dana w Paryżu, 1840 r. młodej zakonnicy – siostrze Justynie Bisqueyburu.</p>
+  
+<p>Zielony Szkaplerz to znak Niepokalanego Serca Maryi – szczególny dar dla osób oddalonych od Boga i tych, którzy potrzebują uzdrowienia duszy lub ciała. Jest narzędziem łaski i wyrazem macierzyńskiej troski Maryi o zagubione owce.</p>
+<blockquote>  
+<p><em>„Niepokalane Serce Maryi, módl się za nami teraz i w godzinę śmierci naszej.”</em></p>
 </blockquote>
 
 <p>Maryja poprosiła, by szkaplerz był rozdawany wszystkim, a szczególnie tym, którzy oddalili się od wiary. Można go nosić w kieszeni lub umieścić w domu osoby, za którą się modlimy. Warunkiem otrzymania łask jest codzienne odmawianie powyższej modlitwy.</p>
@@ -562,8 +667,9 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
 
 <p id="przypis-M">
   
-<h3>🌹 CUDOWNY MEDALIK<sup><a href="#przypis-MEDALIK">[obrazek]</a></sup> – Mały znak wielkiej łaski</h3>
-<blockquote style="font-style:italic; margin-left:20px; color:#444">
+<h3>🌹 Cudowny medalik<sup><a href="#przypis-MEDALIK">[obrazek]</a></sup></h3> 
+  <p><strong><em>– Mały znak wielkiej łaski</strong></em></p>
+<blockquote>
 — Siostra Katarzyna Labouré
 </blockquote>
   
@@ -580,7 +686,8 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
 
 <hr>
 
-<h3>🌹 PIĘĆ PIERWSZYCH SOBÓT MIESIĄCA – Wynagrodzenie Sercu Maryi</h3>
+<h3>🌹 Pięć pierwszych sobót miesiąca</h3> 
+  <p><strong><em>– Wynagrodzenie Sercu Maryi</strong></em></p>
 <p><em>„Obiecuję przyjść w godzinie śmierci z wszystkimi łaskami potrzebnymi do zbawienia tym, którzy… wynagrodzą Memu Niepokalanemu Sercu.”</em> – Matka Boża w Pontevedra, 1925</p>
 <p>To nabożeństwo jest zaproszeniem do wynagradzania za grzechy przeciwko Maryi i sposobem na wyproszenie łaski zbawienia.</p>
 
@@ -602,7 +709,7 @@ Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do m
 
 <div class="section">
 
-<p>Maryja daje swoje znaki – różaniec, szkaplerz, cudowny medalik, pięć pierwszych sobót – nie po to, by zatrzymać nas na sobie, ale by prowadzić do Jezusa. Każda z tych dróg jest jak klucz, który otwiera serce na Boże miłosierdzie. Kto przyjmie te dary, idzie bezpieczniej, bo pod płaszczem Matki.</p>
+<p><p><span class="dropcap">M</span>aryja daje swoje znaki – różaniec, szkaplerz, cudowny medalik, pięć pierwszych sobót – nie po to, by zatrzymać nas na sobie, ale by prowadzić do Jezusa. Każda z tych dróg jest jak klucz, który otwiera serce na Boże miłosierdzie. Kto przyjmie te dary, idzie bezpieczniej, bo pod płaszczem Matki.</p>
 
 <p>Możemy wybrać modlitwę dla siebie, modlić się za innych, albo przyjąć, że ktoś będzie modlił się za nas. W tej drodze szczególnym znakiem jest Zielony Szkaplerz. Maryja poleciła, aby przekazywać go także osobom, które nie praktykują wiary – wystarczy, że ktoś inny będzie odmawiał za nich modlitwę:<br>
 <em>„Niepokalane Serce Maryi, módl się za nami teraz i w godzinę śmierci naszej.”</em><br>
@@ -613,32 +720,61 @@ Maryja obiecała, że osoby te otrzymają łaski nawrócenia i uzdrowienia, nawe
 <p>Nie odkładaj tego daru na później. Jeśli sam potrzebujesz łaski – weź różaniec, nałóż szkaplerz, przyjmij znak Maryi. Jeśli znasz kogoś, kto jest daleko od Boga – módl się za niego, ofiaruj mu Zielony Szkaplerz. A jeśli dziś czujesz się słaby, pozwól, by inni modlili się za ciebie. Maryja zawsze znajdzie drogę do serca, które ktoś Jej powierzył.</p>
 
 </div>
-
-
-
-
-<div class="section" style="background-color:#f6e7ba; border-radius:15px; padding:20px; margin-top:30px;">
-  <h2 style="text-align:center;">Rozdział 4:  Cisza Maryi – objawienia</h2>
+<div style="text-align: center; margin: 20px 0;">
+  <img src="ornament1.png" alt="ornament" style="height: 15px; width: auto;">
+</div>
+    
+<div class="chapter-banner">
+  <div class="chapter-number">Rozdział 4</div>
+  <hr>
+  <div class="chapter-title">Cisza Maryi – objawienia</div>
+  <div class="chapter-quote">„Maryjo... jestem.”</div>
 </div>
 
 <div class="section">
 
-<p>Maryja mówi bardzo mało. W całej Ewangelii wypowiada tylko kilka zdań. A jednak właśnie Jej milczenie zmienia świat.<br>
+<p><p><span class="dropcap">M</span>aryja mówi bardzo mało. W całej Ewangelii wypowiada tylko kilka zdań. A jednak właśnie Jej milczenie zmienia świat.<br>
   Nie trzeba krzyczeć, by być obecnym. Nie trzeba tłumaczyć, by kochać. Nie trzeba udowadniać, by prowadzić.</p>
 <p>Maryja mówi bardzo mało. W całej Ewangelii wypowiada tylko kilka zdań. A jednak właśnie Jej milczenie zmienia świat.</p>
 
 <p>Maryja uczy nas ciszy, która nie jest pustką — lecz pełnią Boga. To cisza Nazaretu, gdzie nikt Jej nie oklaskiwał. To cisza pod Krzyżem, gdzie nikt Jej nie pocieszał. To cisza objawień, gdzie mówi mało, a serce czytelnika bije szybciej.</p>
 
-<p><strong>Jeśli chcesz Ją spotkać — musisz zamilknąć. Odłożyć telefon. Zamknąć powieki. Oddychać spokojnie. I powiedzieć:</strong></p>
+</div>
+<div class="section">
+    <h3>✨ św. Ludwik Maria Grignion de Montfort (1673–1716)</h3>
 
-<p style="text-align:center;"><em>„Maryjo... jestem.”</em></p>
+„Maryja jest najpewniejszą, najłatwiejszą, najkrótszą i najdoskonalszą drogą do Jezusa Chrystusa.” 
+
+<p>
+Św. Ludwik nie miał prywatnego objawienia Maryi, jak Fatima czy Rue du Bac. 
+Całą swoją duchowość oparł na modlitwie, rozważaniu Pisma Świętego i Tradycji Kościoła. 
+Owocem jego życia jest głębokie nabożeństwo całkowitego oddania się Maryi – <em>Totus Tuus</em> („Cały Twój, Maryjo”).
+</p>
+
+<p>
+W swoim dziele <strong><em>„Traktat o prawdziwym nabożeństwie do Najświętszej Maryi Panny”</strong></em> zaproponował <strong>33-dniowe</strong> przygotowanie duchowe, które prowadzi do uroczystego aktu zawierzenia. 
+W tym akcie wierny oddaje Maryi całego siebie – swoje ciało, duszę, myśli, pragnienia i dobre uczynki – aby Ona w pełni prowadziła go do Jezusa.
+</p>
+
+<p>
+Zawierzenie według jego nauki to świadoma decyzja życia w jedności z Nią i wypełniania woli Boga w codzienności.
+</p>
+
+<p>
+Nie nakazał noszenia jednego, konkretnego znaku, ale wielu uczniów jego duchowości zakłada medaliki, szkaplerze lub krzyżyki jako przypomnienie o oddaniu się Maryi. 
+Jego nauka ukształtowała wielu świętych, m.in. św. Maksymiliana Kolbego, kard. Stefana Wyszyńskiego i św. Jana Pawła II, który uczynił słowa <em>Totus Tuus</em> swoim papieskim mottem.
+</p>
+
+<p><strong>🕊️ Modlitwa zawierzenia według św. Ludwika:</strong>
+<blockquote>
+Maryjo, oddaję Ci całego siebie: moje ciało i duszę, dobra wewnętrzne i zewnętrzne, a nawet wartość moich dobrych uczynków – przeszłych, obecnych i przyszłych. 
+Pozostawiam Ci pełne i zupełne prawo rozporządzania mną i wszystkim, co do mnie należy, według Twojego upodobania, dla większej chwały Boga.
+</blockquote>
 </div>
 
-
 <div class="section">
-<h2>„Zbudujcie mi świątynię w miejscu, które wskażę”<br>
-<small>Orędzie Matki Bożej Śnieżnej do papieża Liberiusza – 5 sierpnia 352 roku</small></h2>
-
+<h3>✨ „Zbudujcie mi świątynię w miejscu, które wskażę”</h3>
+<p><strong><em>Orędzie Matki Bożej Śnieżnej do papieża Liberiusza</strong></em></p>
 <p>W sercu Rzymu, na wzgórzu Eskwilińskim, wznosi się jedna z najstarszych i najważniejszych świątyń maryjnych chrześcijaństwa – <strong>Bazylika Najświętszej Maryi Panny Większej</strong> (<em>Basilica di Santa Maria Maggiore</em>). Jej historia sięga IV wieku, a pamięć o jej powstaniu splata się z piękną legendą o cudownym sierpniowym śniegu.</p>
 
 <p><strong>Legenda o cudzie śniegu:</strong><br>
@@ -669,7 +805,8 @@ Bazylika Matki Bożej Większej to nie tylko pomnik historii, ale przede wszystk
 </div>
 
 <div class="section">
-  <h2>Matka Boża Świętolipska<br><small>Matka Jedności Chrześcijan</small></h2>
+  <h3>✨ Matka Boża Świętolipska</h3>
+    <p><strong><em>Matka Jedności Chrześcijan</strong></em></p>
 
   <p>Święta Lipka, położona na Warmii, wśród jezior, lasów i bagien, jest jednym z najbardziej niezwykłych sanktuariów maryjnych w Polsce. Mówi się o niej:<br><strong>„Czym Częstochowa dla Polski, czym Ostra Brama dla Litwy – tym Lipka dla Warmii i Mazur.”</strong></p>
 
@@ -702,7 +839,8 @@ Bazylika Matki Bożej Większej to nie tylko pomnik historii, ale przede wszystk
   
     
 <div class="section">
-<h2>Klasztor Sióstr Miłosierdzia <br><small>(Kaplica przy Rue du Bac, Paryż)</small></h2>
+<h3>✨ Klasztor Sióstr Miłosierdzia</h3>
+<p><strong><em>(Kaplica przy Rue du Bac, Paryż)</strong></em></p>
 
 <h3>Pierwsze objawienie – 18/19 lipca 1830</h3>
 <p>W wigilię uroczystości św. Wincentego à Paulo, którego Katarzyna Labouré szczególnie kochała, modliła się gorąco o łaskę ujrzenia Matki Bożej. Około godziny 23:30 została nagle obudzona przez tajemnicze dziecko – anioła, który powiedział:</p>
@@ -827,15 +965,18 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
 <div class="section">
   <p id="przypis-C">
 
-  <h2>ks. Karol Antoniewicz SJ (1807–1852)<br><small>„Chciałem umrzeć z bólu… a Maryja pokazała mi, jak żyć mimo ran.”</small></h2>
+  <h3>✨ ks. Karol Antoniewicz SJ (1807–1852)</h2>
+   <p><strong><em>„Chciałem umrzeć z bólu… a Maryja pokazała mi, jak żyć mimo ran.”</strong></em></p>
 
   <p><strong> Dziecko dwóch światów</strong><br>
-  Karol Antoniewicz urodził się w 1807 roku, na ziemiach dzisiejszej Ukrainy, w zamożnej rodzinie ormiańsko-polskiej. Otrzymał staranne wykształcenie. Był poetą, myślicielem, patriotą. Założył rodzinę. Miał żonę, dzieci, dom.</p>
+  <span class="dropcap">K</span>arol Antoniewicz urodził się w 1807 roku, na ziemiach dzisiejszej Ukrainy, w zamożnej rodzinie ormiańsko-polskiej. Otrzymał staranne wykształcenie. Był poetą, myślicielem, patriotą. Założył rodzinę. Miał żonę, dzieci, dom.</p>
+<hr>
 
   <p><strong> Droga przez ogień</strong><br>
   Najpierw zmarła żona. Potem dzieci, jedno po drugim. Został sam. Nie wytrzymałby tego nikt.</p>
 
   <p>A on – nie uciekł od Boga. Uciekł do Maryi.</p>
+<hr>
 
   <p><strong> Iskra powołania</strong><br>
   W samotności, która go przenikała, nie wybrał buntu. Wybrał modlitwę. Sięgnął po różaniec. Nie dlatego, że czuł się silny – tylko dlatego, że nie miał nic, oprócz Matki Bożej.</p>
@@ -844,6 +985,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <p><em>„Maryjo… nie mam nikogo. Ale Ty jesteś Matką, która nie umiera.”</em></p>
 
   <p>W tej pustce zapadła decyzja: odda wszystko, co zostało – Jej. W 1839 roku wstąpił do zakonu jezuitów. Zostawił nazwisko, majątek, przeszłość. Zaczął nowe życie – w habicie, z różańcem i z Maryją.</p>
+<hr>
 
   <p><strong> Misjonarz serc prostych</strong><br>
   Nie błyszczał na salonach. Nie pisał uczonych traktatów. Chodził pieszo po wsiach i miasteczkach Galicji, głosząc Ewangelię i wzywając ludzi do powrotu do Maryi.</p>
@@ -853,6 +995,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <p><em>„Człowieku… Maryja nie zostawi cię. Choćbyś był najbiedniejszy.”</em></p>
 
   <p>Ludzie nie przychodzili słuchać mówcy. Przychodzili do kogoś, kto mówił o Maryi z łzami w oczach. A kiedy płakał – oni płakali z nim.</p>
+<hr>
 
   <p><strong> Śpiewak Matki Bożej</strong><br>
   Gdy już nie miał sił, pisał. Z jego duszy wypływały pieśni, które dziś są częścią serca polskiej pobożności.</p>
@@ -861,9 +1004,11 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <p><strong>„Chwalcie łąki umajone…”<sup><a href="#przypis-chwalcie">[pieśń]</a></sup></strong>.</p>
   <p><em>„O Maryjo, przyjm w ofierze…”</em></p>
   <p><em>„Zawitał dla nas majowy poranek…”</em></p>
+<hr>
 
   <p><strong>🕯 Śmierć jak spełnienie</strong><br>
   Zmarł w 1852 roku, mając zaledwie 45 lat. Cichy. Zmęczony. Wyniszczony. Ale szczęśliwy – bo każda łza jego życia została złożona w dłoniach Matki.</p>
+<hr>
 
   <p><strong> Jego dziedzictwo</strong><br>
   Do dziś jego pieśni rozbrzmiewają w kościołach w Polsce.</p>
@@ -871,25 +1016,29 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <p>Jego kazania i świadectwo życia są iskrą dla tych, którzy stracili wszystko – ale nie stracili Boga.</p>
 
   <p>Jest symbolem duchowej odnowy przez Maryję.</p>
+<hr>
 
   <p><strong> Co mówi nam dziś?</strong><br>
   <em>„Nawet jeśli wszystko ci się zawali – nie jesteś sam. Jest Matka. Nie zostawi cię. I nauczy cię śpiewać... nawet wtedy, gdy serce pęka.”</em></p>
 </div>
 
 <div class="section">
-  <h2>Błogosławiony Bartolo Longo i Nowenna Pompejańska<br><small>„Modlitwa nie do odparcia”</small></h2>
+  <h3>✨ Błogosławiony Bartolo Longo</h3>
+  <p><strong><em>„Modlitwa nie do odparcia”</strong></em></p>
 
   <h3>Życie Bartola Longo</h3>
-  <p>Bartolo Longo urodził się w Latiano, w pobliżu Brindisi, 10 lutego 1841 roku. Po ukończeniu szkoły elementarnej i średniej zapisał się na uniwersytet w Neapolu. W tamtym czasie zarówno młodzież, jak i profesorowie bardziej zajmowali się polityką niż nauką. Dlatego Longo przeniósł się do Lecce, gdzie studiował prywatnie pod okiem wytrawnych profesorów. W wolnych chwilach oddawał się muzyce, jednak żyjąc bardzo skromnie z powodu braku środków na naukę gry na fortepianie i flecie, podupadł na zdrowiu.</p>
+  <p><span class="dropcap">B</span>artolo Longo urodził się w Latiano, w pobliżu Brindisi, 10 lutego 1841 roku. Po ukończeniu szkoły elementarnej i średniej zapisał się na uniwersytet w Neapolu. W tamtym czasie zarówno młodzież, jak i profesorowie bardziej zajmowali się polityką niż nauką. Dlatego Longo przeniósł się do Lecce, gdzie studiował prywatnie pod okiem wytrawnych profesorów. W wolnych chwilach oddawał się muzyce, jednak żyjąc bardzo skromnie z powodu braku środków na naukę gry na fortepianie i flecie, podupadł na zdrowiu.</p>
   <p>Po przyłączeniu Neapolu do zjednoczonych Włoch powrócił na tamtejszy uniwersytet. Niestety, uległ wówczas modzie na laicyzm i praktyki spirytystyczne. Przyjął nawet „święcenia kapłańskie” na wzór katolickich, stając się kapłanem szatana. Na szczęście spotkał profesora Wincentego Pepe – człowieka głębokiej wiary – który przekonał go o błędzie jego drogi i zapoznał z dominikaninem, który rozwiał jego wątpliwości co do wiary. Bartolo nawrócił się i powrócił do praktyk katolickich.</p>
   <p>W 1864 roku zdobył doktorat z prawa, lecz porzucił zawód adwokata. Złożył ślub czystości i oddał się modlitwie oraz dziełom miłosierdzia. Współpracował z księżną Marianną de Fusco, która wspierała jego inicjatywy. W 1872 roku został administratorem jej majątków w okolicach Pompei. Tam zastał ludność w duchowym opuszczeniu i rozpoczął katechizację, szczególnie szerząc nabożeństwo różańca.</p>
   <p>W 1875 roku otrzymał zniszczony obraz Matki Bożej Różańcowej, który odnowił i umieścił w kościółku parafialnym. Obraz szybko zasłynął łaskami, co spowodowało napływ pielgrzymów. Zachęcony przez biskupa, Longo rozpoczął budowę nowej świątyni, którą ukończono w 1887 roku. Tego samego roku papież Leon XIII zezwolił na koronację obrazu koronami papieskimi.</p>
   <p>Bartolo założył przy sanktuarium sierociniec prowadzony przez „Córki Różańca z Pompei” oraz Instytut Dzieci Więźniów, prowadzony przez Braci Szkół Chrześcijańskich. Wydawał czasopisma „Różaniec” i „Nowa Pompeja” oraz wiele publikacji o różańcu. Swoje dzieła oddał pod opiekę Stolicy Apostolskiej. Mimo prześladowań ze strony masonerii i liberalnej prasy, wytrwale szerzył kult Maryi.</p>
   <p>Zmarł 5 października 1926 roku, w miesiącu różańca, w wieku 85 lat. Jego ciało spoczywa w krypcie pod bazyliką w Pompejach.</p>
+<hr>
 
   <h3>Początki nowenny pompejańskiej</h3>
   <p>W 1879 roku Bartolo ciężko zachorował na dur brzuszny. Poprosił o obraz Matki Bożej Pompejańskiej i przed nim ułożył nowennę błagalną. Dziewiątego dnia został cudownie uzdrowiony. Następnie napisał nowennę dziękczynną. Początkowo obie modlitwy odmawiano przez 9 dni.</p>
   <p>W 1884 roku w Neapolu miało miejsce cudowne uzdrowienie Fortunatiny Agrelli, cierpiącej od lat na ciężką padaczkę. Maryja objawiła jej, że wyzdrowieje, jeśli odmówi trzy nowenny błagalne i trzy dziękczynne – razem 54 dni modlitwy różańcowej. Po zakończeniu modlitwy Fortunatina została całkowicie uzdrowiona. Maryja obiecała, że każdy, kto będzie odmawiać nowennę w ten sposób, otrzyma łaski potrzebne do zbawienia i życia.</p>
+<hr>
 
 <h3>Jak odmawiać nowennę pompejańską?</h3>
   <hr>
@@ -913,6 +1062,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
 
 </ul>
 <hr>
+  <hr>
 <p>przez kolejne 27 dni – część dziękczynną.</p>
 <ul>
   <li>Czynimy znak krzyża</li>
@@ -942,11 +1092,13 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
 
 <h2>św. Jan Paweł II<br><small>„W Kalwarii nauczyłem się płakać.”</small></h2>
     
-  <p>Młody Karol Wojtyła pierwszy raz został zabrany na pielgrzymkę do Kalwarii Zebrzydowskiej przez swojego ojca, Karola Seniora. Było to prawdopodobnie krótko po śmierci matki przyszłego papieża, na co wskazują zachowane zdjęcia. To tam, docierając jako 9-latek przed Jej wizerunek, usłyszał od ojca: <em>„Teraz to Ona będzie Twoją Matką.”</em></p>
+  <p><span class="dropcap">M</span>łody Karol Wojtyła pierwszy raz został zabrany na pielgrzymkę do Kalwarii Zebrzydowskiej przez swojego ojca, Karola Seniora. Było to prawdopodobnie krótko po śmierci matki przyszłego papieża, na co wskazują zachowane zdjęcia. To tam, docierając jako 9-latek przed Jej wizerunek, usłyszał od ojca: <em>„Teraz to Ona będzie Twoją Matką.”</em></p>
   
   <p>Karol, dotknięty żałobą i tęsknotą za matką Emilią, wziął sobie do serca te słowa i silnie związał się z Maryją Kalwaryjską – już na zawsze. Przez kolejne lata wracał do Niej, gdy tylko mógł – gdy miał problemy, rozterki czy rozeznawał powołanie kapłańskie. „Kiedy w domu były jakieś uroczystości lub kłopoty, wtedy szliśmy do Kalwarii i tak to już mi zostało” – wspominał. „W Kalwarii Zebrzydowskiej zawsze znajdowałem szczególne oparcie i światło.”</p>
   
   <p>To doświadczenie stało się fundamentem jego maryjnej duchowości, której późniejszym wyrazem było „Totus Tuus” – „Cały Twój, Maryjo”. Jako Papież, 19 sierpnia 2002 roku, podczas pielgrzymki do Ojczyzny, przybył do Matki Bożej Kalwaryjskiej i zmówił osobistą, wzruszającą modlitwę. Wielu komentatorów uznaje ją za jego duchowy testament – ostatnie zawierzenie swego życia, Polski i całego Kościoła.</p>
+<hr>
+
   <p><strong>Papieski akt zawierzenia Maryi<sup><a href="#przypis-papiez">[modlitwa]</a></sup></strong>.</p>
   <p>Na zakończenie tej wizyty Jan Paweł II poprosił o odśpiewanie tradycyjnej pieśni pielgrzyma, od pokoleń towarzyszącej pożegnaniom z Matką Bożą Kalwaryjską. Wówczas niektórzy obawiali się, że może to zabrzmieć jak zapowiedź jego ostatniego przyjazdu do Ojczyzny. Dziś wiemy, że rzeczywiście było to wzruszające pożegnanie. Pieśń ta powróciła w pamięci wiernych także w 2005 roku, gdy Ojciec Święty odchodził do Domu Ojca.</p>
 
@@ -977,9 +1129,10 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
 
 
 <div class="section">
-  <h2>„Dobrze mi się przypatrz”<br><small>Historia Tomasza Kłossowskiego i początków sanktuarium w Licheniu</small></h2>
+  <h2>„Dobrze mi się przypatrz”<br><small>Historia Tomasza Kłossowskiego</small></h2>
 
-  <p>Początki <strong>Sanktuarium Matki Bożej Bolesnej Królowej Polski</strong> w Licheniu Starym wiążą się z postacią Tomasza Kłossowskiego i późniejszymi objawieniami pasterzowi Mikołajowi Sikatce.</p>
+  <p><span class="dropcap">P</span>oczątki<strong>Sanktuarium Matki Bożej Bolesnej Królowej Polski</strong> w Licheniu Starym wiążą się z postacią Tomasza Kłossowskiego i późniejszymi objawieniami pasterzowi Mikołajowi Sikatce.</p>
+  <hr>
 
   <h3>Tomasz Kłossowski i objawienie w 1813 roku</h3>
   <p>Tomasz Kłossowski, dziedzic z Izbicy Kujawskiej, który po utracie majątku osiedlił się w Izabelinie i pracował jako kowal, brał udział w wojnach napoleońskich. Został ranny podczas Bitwy Narodów pod Lipskiem w 1813 roku. Leżąc w zaroślach, modlił się do Matki Bożej, trzymając medalik z Jej wizerunkiem. Według przekazu tradycji, Maryja miała mu się ukazać, obiecując powrót do ojczyzny i prosząc, by postarał się o obraz taki, jakim Ją ujrzał, i umieścił go w swojej okolicy.</p>
@@ -991,10 +1144,12 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   </blockquote>
 
   <p>Po powrocie do Polski, Kłossowski przez wiele lat szukał obrazu odpowiadającego widzeniu. W 1836 roku odnalazł taki wizerunek we wsi Lgota pod Częstochową i umieścił go początkowo w swoim domu, a później – w 1844 roku – na sosnowym drzewie w lesie grąblińskim niedaleko Lichenia.</p>
+  <hr>
 
   <h3>Objawienia pasterza Mikołaja Sikatki</h3>
   <p>Około 1850 roku pasterz Mikołaj Sikatka doświadczył serii objawień Maryi w miejscu, gdzie wisiał obraz. Maryja wzywała do pokuty, modlitwy różańcowej i przestrzegała przed epidemią. Przekaz ten został zapisany przez ówczesnego proboszcza i uznany przez władze kościelne.</p>
   <p>W 1852 roku cudowny obraz przeniesiono do kaplicy w Licheniu, co dało początek rozwojowi sanktuarium.</p>
+  <hr>
 
   <h3>Rozwój sanktuarium</h3>
   <p>Z biegiem lat w miejscu objawień powstawały kolejne kaplice i kościoły. W latach 1994–2004 wybudowano monumentalną bazylikę, jedną z największych świątyń w Europie. W 2005 roku papież Jan Paweł II nadał jej tytuł <strong>bazyliki mniejszej</strong>.</p>
@@ -1114,37 +1269,129 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
 
   
 <div class="section">
-  <h2 style="text-align: center;">„Matka, która słucha”<br><small>Matka Boża Rokitniańska – historia obrazu, który mówi ciszą</small></h2>
+  <h2>„Matka, która słucha”<small> – (na zachodzie)</small></h2>
 
-  <p>W <strong>Rokitnie</strong>, niedaleko Gorzowa Wielkopolskiego, czczony jest od XVII wieku wizerunek <strong>Matki Bożej Cierpliwie Słuchającej</strong>. Obraz ten, namalowany na drewnie lipowym w XVI wieku, przedstawia Maryję z pochyloną głową, przymkniętymi oczami i odsłoniętym uchem – jakby <em>w skupieniu słuchała każdego, kto przychodzi</em>.</p>
+  <p><span class="dropcap">W</span><strong>Rokitnie</strong>, niedaleko Gorzowa Wielkopolskiego, od XVII wieku czczony jest niezwykły wizerunek Matki Bożej, nazywanej <strong>Cierpliwie Słuchającą</strong>. Obraz, namalowany na lipowej desce w XVI wieku, przedstawia Maryję w ciszy i skupieniu – z pochyloną głową, przymkniętymi oczami i odsłoniętym uchem. To znak, że Ona słucha sercem.</p>
 
-  <p>Choć nie jest to obraz związany z objawieniem, to jednak <strong>słynie z duchowej ciszy, która przemienia serca</strong>. Wielu pielgrzymów przyznaje, że przybywa do Rokitna nie po spektakularne znaki, ale po pokój i rozeznanie:</p>
+  <p>Nie jest to obraz związany z objawieniem, lecz od wieków słynie łaską duchowego pokoju. Pielgrzymi powtarzają:</p>
 
   <blockquote style="font-style: italic; border-left: 4px solid #ccc; padding-left: 15px; margin: 20px 0;">
     „Nie słyszałem słów, ale wiedziałem, co mam zrobić.”<br>
     „Maryja nie mówiła – tylko była. A to wystarczyło.”
   </blockquote>
+  <hr>
 
-  <p>Historia obrazu jest zawiła i sięga początków XVI wieku. Był przekazywany między szlacheckimi rodzinami Stawickich, Rozdrażewskich i Opalińskich. W 1669 roku <strong>opat cystersów z Bledzewa – Kazimierz Jan Opaliński</strong> – przeniósł obraz do Rokitna, po tym jak sam doznał cudownego uzdrowienia. W 1670 roku Komisja Teologiczna uznała obraz za cudowny.</p>
+  <h3>Historia cudownego obrazu</h3>
 
-  <p>Sława wizerunku dotarła aż do króla <strong>Michała Korybuta Wiśniowieckiego</strong>, który modlił się przed nim w czasie politycznych niepokojów. W dowód wdzięczności za cud pokoju, <strong>umieścił na obrazie Białego Orła i słowa modlitwy: „Da pacem, Domine, in diebus nostris”</strong> (Daj, Panie, pokój w naszych czasach).</p>
+  <p>Wizerunek Matki Bożej Rokitniańskiej ma <strong>40 cm</strong> wysokości i <strong>27 cm</strong> szerokości. Twarz Maryi – spokojna, pochylona ku lewej stronie – otoczona jest aureolą. Muślinowy welon, błękitny płaszcz i czerwona szata w królewskim odcieniu podkreślają Jej majestat.</p>
 
-  <p>W 1671 roku obraz uroczyście powrócił do Rokitna. Od tamtej pory <strong>przez wieki był znakiem nadziei i jedności narodowej</strong>, szczególnie w czasach zaborów i komunizmu. W czasie II wojny światowej został ukryty przez ostatniego niemieckiego proboszcza i po wojnie odrestaurowany.</p>
+  <p>Pierwotnie obraz znajdował się w rodzinie <strong>Stawickich</strong> z Kujaw, a następnie poprzez małżeństwa trafił do <strong>Rozdrażewskich</strong>, <strong>Leszczyńskich</strong> i <strong>Opalińskich</strong>. Opat cystersów w Bledzewie, <strong>Kazimierz Jan Opaliński</strong>, przechowywał go w klasztorze. Po cudownym uzdrowieniu – własnym i wielu wiernych – w <strong>1669 roku</strong> przeniósł wizerunek do Rokitna. Rok później specjalna <strong>Komisja Teologiczna</strong> uznała obraz za cudowny.</p>
 
-  <p><strong>15 sierpnia 1946 roku</strong> Matka Boża Rokitniańska została ogłoszona <strong>patronką Administracji Gorzowskiej</strong>, a kult ożywił się na nowo. W <strong>1989 roku</strong> prymas Polski kard. Józef Glemp dokonał <strong>uroczystej koronacji obrazu</strong> w obecności 120 tysięcy wiernych. W 2002 roku kościół rokitniański został podniesiony do rangi <strong>Bazyliki Mniejszej</strong>.</p>
+  <p>Wieść o nim dotarła aż do króla <strong>Michała Korybuta Wiśniowieckiego</strong>. Król, modląc się przed wizerunkiem w obliczu buntu szlachty, doświadczył pokoju – zwycięstwo osiągnięto nie mieczem, lecz drogą rozmów. Na pamiątkę król ozdobił obraz <strong>Białym Orłem</strong> i napisem: <em>„Da pacem, Domine, in diebus nostris”</em> – Daj, Panie, pokój w naszych czasach.</p>
 
-  <p>Maryja z Rokitna nazywana jest <em>Matką Bożą Rycerską</em>, <em>Obozową</em>, <em>Królową Orła Białego</em> oraz <em>Matką Cierpliwie Słuchającą</em>. Jej spojrzenie – ciche, skupione, pełne zrozumienia – przemawia nie słowem, lecz <strong>ciszą, która niesie pokój</strong>.</p>
+  <p>W <strong>1671 roku</strong> obraz powrócił do Rokitna i odtąd był otaczany wielką czcią. W czasach zaborów i komunizmu stał się znakiem nadziei i jedności narodu. W czasie II wojny światowej został ukryty, a po wojnie odnowiony.</p>
+
+  <p><strong>15 sierpnia 1946 roku</strong> Matkę Bożą Rokitniańską ogłoszono patronką <strong>Administracji Gorzowskiej</strong>. W <strong>1989 roku</strong> prymas Polski kard. Józef Glemp koronował obraz w obecności <strong>120 tysięcy wiernych</strong>, a w <strong>2002 roku</strong> rokitniański kościół podniesiono do rangi <strong>Bazyliki Mniejszej</strong>.</p>
+
+  <p>Maryja z Rokitna otrzymała liczne tytuły: <em>Matka Boża Rycerska</em>, <em>Obozowa</em>, <em>Królowej Orła Białego</em>, <em>Matka Cierpliwie Słuchająca</em>.</p>
+  <hr>
+
+  <h3>Kalwaria Rokitniańska</h3>
+
+  <p>Pomiędzy jeziorami <strong>Lubikowskim</strong> i <strong>Rokitniańskim</strong> rozciąga się unikalna <strong>Kalwaria Rokitniańska</strong> – <strong>32 stacje Drogi Krzyżowej</strong> wśród drzew, krzewów i kwiatów, na <strong>4,5-kilometrowej</strong> trasie.</p>
+
+  <p>Budowę rozpoczęto w <strong>2000 roku</strong> dzięki darczyńcom i zaangażowaniu wielu wspólnot. Stacje, ozdobione rzeźbami <strong>Jacka Nowaka</strong> i innych artystów, stały się miejscem kontemplacji Męki Pańskiej.</p>
+
+  <p>Szczególnym wydarzeniem jest coroczna <strong>Droga Krzyżowa w piątek przed Niedzielą Palmową</strong>, kiedy tysiące wiernych w świetle pochodni przemierzają Kalwarię w modlitwie i ciszy.</p>
+  <hr>
+
+  <h3>Bazylika Matki Bożej Rokitniańskiej</h3>
+
+  <p>Historia świątyni w Rokitnie sięga <strong>XII wieku</strong>. Obecna bazylika, zbudowana w XVIII wieku według projektu <strong>Karola Marcina Frantza</strong>, zachwyca barokowym wnętrzem i bogatą polichromią.</p>
+
+  <p>W centralnym ołtarzu znajduje się cudowny obraz Maryi. Sklepienia zdobią sceny biblijne, aniołowie z instrumentami, a także postacie świętych i Doktorów Kościoła. Uwagę pielgrzymów przyciągają również rzeźby, ołtarze boczne i unikatowa ambona w kolorach błękitu i złota.</p>
+
+  <p>W <strong>2001 roku</strong> papież <strong>Jan Paweł II</strong> nadał świątyni tytuł <strong>Bazyliki Mniejszej</strong>. To miejsce stało się duchowym sercem diecezji zielonogórsko-gorzowskiej.</p>
+  <hr>
+
+  <h3>Modlitwa pokoju</h3>
+
+  <p>Na obrazie Matki Bożej Rokitniańskiej znajduje się ryngraf z napisem:</p>
 
   <blockquote style="font-style: italic; border-left: 4px solid #ccc; padding-left: 15px; margin: 20px 0;">
-    „Da pacem, Domine, in diebus nostris – Daj, Panie, pokój w naszych czasach…”<br>
-    (Modlitwa rycerska z obrazu Matki Bożej Rokitniańskiej)
+    „Da pacem, Domine, in diebus nostris”<br>
+    „Daj, Panie, pokój w naszych czasach.”
   </blockquote>
 
-  <p>Dziś Rokitno to miejsce <strong>pokuty, modlitwy i duchowego ukojenia</strong>. W ciszy sanktuarium słychać więcej niż w głośnych miejscach świata – bo tam Matka naprawdę słucha.</p>
+  <p>To słowa starożytnej pieśni błagalnej, inspirowanej Psalmem 51. Od wieków powtarzają je rycerze, królowie, kapłani i zwykli pielgrzymi.</p>
+
+  <p>Maryja w Rokitnie nie przemawia głośno – <strong>uczy nas pokoju przez ciszę</strong>.</p>
+</div>
+
+<div class="section">
+  <h3 style="text-align: center;">Dlaczego Rokitno i Kalwaria Pacławska?</h3>
+
+  <p><span class="dropcap">R</span><strong>okitno</strong> – serce diecezji lubuskiej – i <strong>Kalwaria Pacławska</strong> – duchowa stolica Podkarpacia – powstały niemal w tym samym czasie: w drugiej połowie XVII wieku. W Rokitnie cudowny obraz Matki Bożej Cierpliwie Słuchającej sprowadzono w <strong>1669 roku</strong>, a już rok później uznano go za cudowny. W Kalwarii Pacławskiej Andrzej Maksymilian Fredro ufundował sanktuarium w <strong>1665 roku</strong>, a obraz Matki Bożej Słuchającej trafił tam wkrótce po zdobyciu Kamieńca Podolskiego przez Turków (1672).</p>
+
+  <p>Oba miejsca dzieli odległość setek kilometrów – Rokitno leży w zachodniej Polsce, pośród jezior i lasów, Kalwaria Pacławska na południowo-wschodnich rubieżach, wśród karpackich wzgórz i dolin. A jednak łączy je wspólne przesłanie: <strong>Maryja słucha</strong>. W Rokitnie z odsłoniętym uchem, w Kalwarii z tym samym znakiem otwartości. W obu sanktuariach pielgrzymi powtarzają: <em>„Ona naprawdę słyszy, co mówimy w ciszy serca.”</em></p>
+
+  <p>W Rokitnie Maryja przyniosła pokój całemu narodowi – modlitwy przed Jej wizerunkiem ocaliły Polskę od bratniej walki, a król Michał Korybut Wiśniowiecki umieścił na obrazie słowa: <em>„Da pacem, Domine, in diebus nostris.”</em> W Kalwarii Pacławskiej cudowny obraz ocalał z pożarów i wojennych zawieruch, a Maryja wciąż wysłuchuje próśb, czego świadectwem są setki spisanych cudów i łask.</p>
+
+  <p>Tak jak <strong>dróżki Rokitniańskie</strong> prowadzą do ciszy i kontemplacji, tak <strong>dróżki Kalwaryjskie</strong> pozwalają przejść Mękę Pańską i rolę Maryi w dziele zbawienia. Obie Kalwarie – choć oddalone – tworzą duchowy most między Wschodem i Zachodem Polski.</p>
+
+  <blockquote style="font-style: italic; border-left: 4px solid #ccc; padding-left: 15px; margin: 20px 0;">
+    „Dwie Matki Słuchające – Rokitniańska i Pacławska – uczą, że cisza jest językiem serca. W Rokitnie i w Kalwarii człowiek odkrywa, że Maryja nie musi mówić wiele, aby nas prowadzić. Wystarczy, że słucha.”
+  </blockquote>
+</div>
+
+
+<div class="section">
+  <h2>„Matka, która słucha”<small> – (na wschodzie)</small></h2>
+
+  <p><span class="dropcap">W</span><strong>1665 roku</strong> Andrzej Maksymilian Fredro założył osadę <strong>Kalwaria Pacławska</strong>, sprowadzając franciszkanów i fundując klasztor. Celem dzieła było szerzenie kultu Męki Pańskiej. Układ wzgórz przypominał krajobraz Jerozolimy – z pasmem <em>Uboczy</em> na wschodzie, <em>Górą Oliwną</em> i <em>Kopystańką</em> na północy, widokiem Karpat na południu i doliną rzeki <strong>Wiar</strong>, odwzorowującą Cedron i Dolinę Jozafata. Na wzgórzach powstały kaplice Dróżek, a droga krzyżowa liczy <strong>1662 metry</strong>.</p>
+
+  <p>Obecny kościół wybudowano w latach <strong>1770–1775</strong> z fundacji <strong>Szczepana Józefa Dwernickiego</strong>, drugiego fundatora Kalwarii. Konsekrował go w 1776 roku biskup ormiański Jakub Walerian Tumanowicz. Mimo pożarów w XIX wieku, barokowe wnętrze ocalało – przypisywano to opiece Matki Bożej.</p>
+  <hr>
+
+  <h3>Bazylika</h3>
+
+  <p>Świątynia zbudowana została na planie krzyża, w stylu barokowym. Korpus jest trzynawowy, fasadę zdobią dwie wieże. W 1863 roku dodano podcienia, które podczas odpustów służą jako konfesjonały. Wnętrze kościoła zachowało bogaty, barokowy charakter z ołtarzami wykonanymi w warsztacie <strong>Macieja Polejowskiego</strong> ze Lwowa.</p>
+
+  <p>W prezbiterium znajduje się monumentalny ołtarz z krucyfiksem i figurami świętych. W transepcie południowym umieszczono ołtarz z <strong>cudownym obrazem Matki Bożej Kalwaryjskiej</strong>, otoczony złoconymi rzeźbami i wotami wdzięczności. Freski i polichromie kościoła ukazują sceny biblijne, życie św. Franciszka oraz motywy maryjne.</p>
+  <hr>
+
+  <h3>Cudowny obraz Matki Bożej Słuchającej</h3>
+
+  <p>W XVII wieku obraz znajdował się w kościele franciszkanów w <strong>Kamieńcu Podolskim</strong>. Przed nim modlili się królowie i hetmani, m.in. Jan III Sobieski. Gdy w 1672 roku Turcy zdobyli twierdzę, obraz wrzucono do rzeki Smotrycz. Według przekazu wykupił go <strong>Andrzej Maksymilian Fredro</strong> i przeznaczył do Kalwarii Pacławskiej, gdzie zasłynął cudami.</p>
+
+  <p>Od tego czasu spisywano liczne łaski: ocalenie kościoła od pożaru (1685), ponad 50 cudów w XVIII wieku, uzdrowienia i ocalenia w XIX wieku. W 1882 roku papież <strong>Leon XIII</strong> zatwierdził koronację obrazu koronami papieskimi, której dokonał bp Łukasz Solecki.</p>
+
+  <p>W czasie II wojny światowej obraz ukrywano w różnych klasztorach (Czyszki, Jasło, Kraków). Po wojnie powrócił do Kalwarii. W 1968 roku, podczas 300-lecia sanktuarium, czcił go kard. Karol Wojtyła. W 1982 roku odbył się jubileusz 100-lecia koronacji.</p>
+
+  <p><strong>Wygląd obrazu:</strong> płótno (119 × 81 cm, z sukienką 153 cm). Maryja trzyma berło, a na lewej ręce Dzieciątko Jezus – błogosławiące i trzymające kulę ziemską. Ubrana w czerwoną szatę i zielony płaszcz, z koroną na głowie i odsłoniętym uchem – znakiem, że <strong>słucha modlitw pielgrzymów</strong>. Jezus w jasnej tunice i koronie. Obecnie obraz ozdobiony jest wotami i suknią wdzięczności.</p>
+
+  <blockquote style="font-style: italic; border-left: 4px solid #ccc; padding-left: 15px; margin: 20px 0;">
+    „Maryja wysłuchuje próśb, a potrzeby swoich dzieci przedstawia swojemu Synowi.”<br>
+    (Tradycja sanktuarium w Kalwarii Pacławskiej)
+  </blockquote>
+  <hr>
+
+  <h3>Dróżki kalwaryjskie</h3>
+
+  <p>Kaplice i dróżki to serce Kalwarii Pacławskiej. Pierwsze wzniósł Fredro w XVII wieku. Do dziś tworzą rozbudowaną sieć procesyjnych tras, wpisanych w górski krajobraz.</p>
+
+  <ul>
+    <li><strong>Dróżki Pana Jezusa</strong> – 28 stacji Męki Pańskiej, obchodzone m.in. w sobotę przed Zesłaniem Ducha Świętego, 14 sierpnia i 13 września.</li>
+    <li><strong>Dróżki Matki Bożej Bolesnej</strong> – 16 stacji, rozważających rolę Maryi w dziele zbawienia, odprawiane w Niedzielę Zesłania Ducha Świętego po południu.</li>
+    <li><strong>Dróżki Pogrzebu i Wniebowzięcia Maryi</strong> – 14 stacji, obchodzone uroczyście 13 sierpnia w procesji z figurą Zaśnięcia Matki Bożej.</li>
+  </ul>
+
+  <p>Dzięki tym nabożeństwom Kalwaria Pacławska nazywana jest <strong>„Jerozolimą Wschodu”</strong>. To miejsce, gdzie pielgrzymi łączą modlitwę, ciszę i wędrówkę z rozważaniem Męki i chwały Chrystusa oraz obecności Jego Matki.</p>
 </div>
     
+    
 <div class="section">
-  <h2 style="text-align: center;">Niepokalanów – miasto Maryi<br><small>Dzieło serca św. Maksymiliana</small></h2>
+  <h2>Niepokalanów – miasto Maryi<br><small>Dzieło serca św. Maksymiliana</small></h2>
 
   <p><strong>Dzieciństwo i pierwsze wezwanie:</strong></p>
   <p>Św. Maksymilian Maria Kolbe przyszedł na świat jako Rajmund Kolbe 8 stycznia 1894 roku w Zduńskiej Woli. Wychował się w ubogiej, lecz głęboko wierzącej rodzinie, gdzie codzienna modlitwa była tak naturalna jak oddychanie. W małej izbie ich domu stała figurka Matki Bożej, przy której rodzina gromadziła się rano i wieczorem.</p>
@@ -1159,6 +1406,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   </blockquote>
 
   <p>To widzenie stało się duchową mapą jego życia.</p>
+  <hr>
 
   <p><strong>Droga zakonna i narodziny Rycerstwa Niepokalanej:</strong></p>
   <p>W wieku trzynastu lat Rajmund wstąpił do franciszkanów konwentualnych we Lwowie, przyjmując imię Maksymilian. Studiował filozofię i teologię w Rzymie, zdobywając doktoraty w obu dziedzinach. Był wybitnym uczonym, ale nade wszystko – człowiekiem całkowicie oddanym Maryi.</p>
@@ -1166,6 +1414,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <p>W 1917 roku, w cieniu antykatolickich wystąpień w Wiecznym Mieście, powołał do życia <em>Militia Immaculatae</em> – <strong>Rycerstwo Niepokalanej</strong>. Celem ruchu była całkowita służba Maryi w dziele nawracania i uświęcania dusz.</p>
 
   <p>Owocem tej misji stał się miesięcznik <em>„Rycerz Niepokalanej”</em>, który w krótkim czasie zdobył ogromną liczbę czytelników. Maryjny rycerz miał być żołnierzem miłości – walczącym o dusze dla Chrystusa przez Maryję.</p>
+  <hr>
 
   <p><strong>Narodziny Niepokalanowa – miasta Maryi:</strong></p>
   <p>Gdy dzieło rosło, klasztor w Grodnie stał się zbyt ciasny. W 1927 roku Maksymilian otrzymał od księcia Jana Druckiego-Lubeckiego kilka mórg ziemi w miejscowości Paprotnia pod Warszawą. 6 sierpnia 1927 roku, w święto Przemienienia Pańskiego, przywiózł tam figurę Matki Bożej i postawił ją na polu. Powiedział:</p>
@@ -1175,6 +1424,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   </blockquote>
 
   <p>Tak narodził się Niepokalanów – franciszkańskie miasteczko modlitwy i pracy. Drukarnia wydawała „Rycerza Niepokalanej” w setkach tysięcy egzemplarzy, później w milionowym nakładzie. Powstały kolejne pisma: „Rycerzyk Niepokalanej”, „Mały Dziennik”. W latach 30. uruchomiono nawet radiostację.</p>
+  <hr>
 
   <p><strong>Zielony Szkaplerz – dar Maryi:</strong></p>
   <p>Szczególne miejsce w duchowości Niepokalanowa zajmuje <strong>Zielony Szkaplerz Niepokalanego Serca Maryi</strong>. Objawiony w 1840 roku siostrze Justynie Bisqueyburu w Paryżu, jest sakramentalium wypraszającym łaski nawrócenia i uzdrowienia.</p>
@@ -1188,11 +1438,13 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <p>– otrzymają szczególną pomoc w chwili śmierci i liczne łaski w życiu.</p>
 
   <p>Ojciec Maksymilian poznał historię tego szkaplerza i wprowadził go do duchowości Niepokalanowa, czyniąc z niego ważne narzędzie ewangelizacji i ratowania dusz.</p>
+  <hr>
 
   <p><strong>Misje w Japonii i powrót do Polski:</strong></p>
   <p>W 1930 roku wyruszył z braćmi do Japonii. W Nagasaki, w trudnych warunkach, założył „Ogród Niepokalanej” – japoński Niepokalanów. W ciągu kilku miesięcy rozpoczęła działalność drukarnia i wydawanie maryjnego pisma w języku japońskim.</p>
 
   <p>W 1936 roku wrócił do Polski i ponownie stanął na czele Niepokalanowa. Tuż przed wojną klasztor liczył kilkuset braci i był największym klasztorem świata.</p>
+  <hr>
 
   <p><strong>Męczeństwo w Auschwitz:</strong></p>
   <p>17 lutego 1941 roku gestapo aresztowało o. Maksymiliana. Po pobycie na Pawiaku trafił do Auschwitz, gdzie otrzymał numer 16670. W lipcu 1941 roku, po ucieczce jednego z więźniów, Niemcy wybrali dziesięciu skazanych na śmierć głodową. Wśród nich znalazł się Franciszek Gajowniczek – ojciec rodziny. Maksymilian wyszedł z szeregu i powiedział:</p>
@@ -1202,6 +1454,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   </blockquote>
 
   <p>W bunkrze śmierci modlił się, pocieszał współwięźniów i przygotowywał ich na spotkanie z Bogiem. Po dwóch tygodniach, 14 sierpnia 1941 roku – w wigilię Wniebowzięcia NMP – został dobity zastrzykiem fenolu.</p>
+  <hr>
 
   <p><strong>Dziedzictwo:</strong></p>
   <p>Niepokalanów przetrwał wojnę i do dziś jest miejscem modlitwy, formacji i pielgrzymek. W jego sercu bije Bazylika Mniejsza Niepokalanej Wszechpośredniczki Łask, muzeum św. Maksymiliana i kaplica Wieczystej Adoracji.</p>
@@ -1211,6 +1464,7 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
   <blockquote>
     „Cały świat dla Niepokalanej!”
   </blockquote>
+  <hr>
 
   <p>Św. Maksymilian Maria Kolbe został <strong>beatyfikowany przez papieża Pawła VI w 1971 roku</strong>, a <strong>kanonizowany przez św. Jana Pawła II 10 października 1982 roku</strong>. Jest patronem naszych trudnych czasów i wzorem tego, co znaczy oddać się Maryi całkowicie – aż po dar z życia.</p>
 </div>
@@ -1233,18 +1487,18 @@ Broń mnie od zła i prowadź do świętości. Amen.</p>
 <div class="section"
   <p>
     W tym rozdziale wspomniałem jedynie kilka spośród niezliczonych spotkań z Maryją. 
-    Wybrałem je tak, aby ukazać różne oblicza Jej obecności: ciszę, wezwanie do modlitwy i pokuty, pocieszenie w cierpieniu, prowadzenie do Jezusa. 
+    Wybrałem je tak, aby ukazać różne oblicza Jej obecności: wezwanie do modlitwy i pokuty, pocieszenie w cierpieniu, prowadzenie do Jezusa. 
     Nie sposób opisać wszystkich nawiedzeń Maryjnych – wiele z nich znalazło już swoje miejsce w innych częściach tej książki.
   </p>
   <p>
     Zachęcam do sięgania po liczne publikacje o objawieniach wydane na przestrzeni lat przez wydawnictwa chrześcijańskie. 
     W nich można odkryć jeszcze więcej świadectw i znaków, które prowadzą serce bliżej Boga – 
-    przez Maryję, Matkę, która w ciszy czeka na każdego, kto pragnie Ją spotkać.
+    przez Maryję, Matkę, która czeka na każdego, kto pragnie Ją spotkać.
   </p>
 </div>
 
 <div class="section">
-  <p><em>Maryjo… nie rozumiem wszystkiego, ale chcę być Twój. Zabierz moje serce, moje rany, moje pytania. Niech moje życie stanie się różańcem – nawet jeśli pełnym poplątanych paciorków. Naucz mnie kochać tak, jak Ty kochasz – cicho, wiernie, do końca. Amen.</em></p>
+  <p><em>Maryjo… nie rozumiem wszystkiego, ale chcę być Twój. Zabierz moje serce, moje rany, moje pytania. Niech moje życie stanie się różańcem – nawet jeśli pełnym poplątanych paciorków. Naucz mnie kochać tak, jak Ty kochasz – wiernie, do końca. Amen.</em></p>
 
   <p>Ale spotkanie z Maryją nie kończy się na słowach modlitwy. Kościół i pobożność wiernych przez wieki wykształciły wiele form, w których Jej serce jest czczone, a my możemy zbliżyć się do Niej bardziej:</p>
 
@@ -2186,7 +2440,42 @@ To może być <em>cichy plan złego ducha</em>, który wie, jak potężna jest t
 
   <p style="text-align:right;"><em>Amen.</em></p>
 </div>
-  
+
+<!-- BIBLIOGRAFIA -->
+<div class="section" style="background-color:#eef3f7; padding:20px; border-radius:12px; margin-top:40px">
+  <h2 style="text-align:center">📖 Bibliografia</h2>
+
+  <h3>Źródła podstawowe:</h3>
+  <ul>
+    <li>Pismo Święte Starego i Nowego Testamentu, <em>Biblia Tysiąclecia</em>, wyd. V, Poznań 2003.</li>
+    <li><em>Katechizm Kościoła Katolickiego</em>, Pallottinum, Poznań 1994.</li>
+    <li><em>Dokumenty Soboru Watykańskiego II</em>, Pallottinum, Poznań 2002.</li>
+  </ul>
+
+  <h3>Dokumenty papieskie:</h3>
+  <ul>
+    <li>Jan Paweł II, <em>Redemptoris Mater</em> (Encyklika o Błogosławionej Maryi Dziewicy w życiu pielgrzymującego Kościoła), 1987.</li>
+    <li>Benedykt XVI, <em>Deus Caritas Est</em> (Encyklika o miłości chrześcijańskiej), 2005 – w części o Maryi jako wzorze miłości.</li>
+    <li>Franciszek, <em>Evangelii Gaudium</em> (Adhortacja apostolska o głoszeniu Ewangelii we współczesnym świecie), 2013 – w części maryjnej.</li>
+  </ul>
+
+  <h3>Klasyka mariologii:</h3>
+  <ul>
+    <li>Św. Ludwik Maria Grignion de Montfort, <em>Traktat o prawdziwym nabożeństwie do Najświętszej Maryi Panny</em>.</li>
+    <li>Św. Alfons Maria Liguori, <em>Uwielbienia Maryi</em>.</li>
+  </ul>
+
+  <h3>Źródła współczesne i opracowania:</h3>
+  <ul>
+    <li>[🔲 <em>Tu wpisz swoje konkretne książki, z których korzystałeś</em>]</li>
+    <li>ks. kard. Stefan Wyszyński, <em>Miłość i sprawiedliwość społeczna</em> – fragmenty maryjne.</li>
+    <li>o. Raniero Cantalamessa, <em>Maryja – kobieta Eucharystii</em>.</li>
+    <li>ks. Franciszek Blachnicki, <em>Niepokalana – Matka Kościoła</em>.</li>
+  </ul>
+</div>
+
+
+    
 <!-- NAGŁÓWEK PRZYPISÓW -->
 <div class="section" style="background-color:#e9e0c5;">
   <h2 style="text-align:center;">📎 Przypisy</h2>
